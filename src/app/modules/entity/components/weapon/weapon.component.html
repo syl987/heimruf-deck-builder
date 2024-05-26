@@ -1,0 +1,22 @@
+<img [src]="templateUrl" alt="Template Image" class="hs-weapon-template-image" />
+
+<img [src]="image256xUrl" alt="Image" class="hs-weapon-image" />
+
+<div class="hs-weapon-cost-value">{{ data().cost }}</div>
+<div class="hs-weapon-attack-value">{{ data().attack }}</div>
+<div class="hs-weapon-durability-value">{{ data().durability }}</div>
+
+<div class="hs-weapon-name-value">
+  <svg viewBox="0 0 226 50">
+    <path id="hs-weapon-name-curve" d="M0,30 L226,30" style="fill: transparent" />
+    <text width="226" fill="white">
+      <textPath startOffset="50%" xlink:href="#hs-weapon-name-curve" style="text-anchor: middle">{{ data().name }}</textPath>
+    </text>
+  </svg>
+</div>
+@if (rarityCrystalStyleUrl) {
+  <div class="hs-weapon-rarity-crystal" [style.background-image]="rarityCrystalStyleUrl"></div>
+}
+<div class="hs-weapon-text-wrapper">
+  <div class="hs-weapon-text-value" [innerHTML]="data().text | safeHtml"></div>
+</div>

@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Corben:700&display=swap&subset=latin-ext');
+
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+
+@import 'bootstrap';
+@import 'material';
+
+@import 'common';
+
+// TODO replace by proper typography settings
+.hs-title {
+  @include hs-control-text;
+}
+
+// TODO scss folder

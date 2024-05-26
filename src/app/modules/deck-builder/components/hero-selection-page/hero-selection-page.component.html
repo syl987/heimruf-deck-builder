@@ -1,0 +1,13 @@
+<div class="container-fluid text-center">
+  <h2 class="h4 hs-title mb-2xs">Hero selection</h2>
+
+  <p class="d-inline-block text-muted fw-bold">Select a hero for your next deck. For each hero, a separate deck is saved in memory.</p>
+</div>
+
+<div class="container-fluid d-flex flex-wrap justify-content-center">
+  @for (hero of heroes(); track hero.id) {
+    <a hs-entity-button routerLink="/deck-builder/{{ hero.cardClass?.toLowerCase() }}" contentType="hero" scale="0.9" [class.active]="selectedHeroId() === hero.id">
+      <hs-hero [data]="hero" />
+    </a>
+  }
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "heimruf": {
+      "hosting": {
+        "heimruf-deck-builder": [
+          "heimruf-deck-builder"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "heimruf"
+  }
+}

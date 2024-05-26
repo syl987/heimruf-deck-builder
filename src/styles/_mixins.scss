@@ -1,0 +1,113 @@
+// shared: mixins
+
+// container
+
+@mixin app-container-fluid {
+  padding-left: app-spacer(s);
+  padding-right: app-spacer(s);
+
+  @media (min-width: app-grid-breakpoint('sm')) {
+    padding-left: app-spacer(m);
+    padding-right: app-spacer(m);
+  }
+
+  @media (min-width: app-grid-breakpoint('xl')) {
+    padding-left: app-spacer(2m);
+    padding-right: app-spacer(2m);
+  }
+}
+
+@mixin app-container {
+  @include app-container-fluid;
+
+  width: $app-container-max-width;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// entity
+
+$hs-entity-highlight-color-inactive: white;
+$hs-entity-highlight-color-available: blue;
+
+$hs-card-value-font-size: 42px;
+$hs-card-name-font-size: 18px;
+$hs-card-text-font-size: 16px;
+$hs-card-race-font-size: 14px;
+
+@mixin hs-entity-highlighting {
+  // TODO size parameter
+  // TODO support multiple colors
+
+  filter: drop-shadow(0 0 5px black);
+
+  &.active,
+  &:hover,
+  &.cdk-keyboard-focused,
+  &.cdk-program-focused {
+    filter: drop-shadow(0 0 3px $hs-entity-highlight-color-inactive) drop-shadow(0 0 3px $hs-entity-highlight-color-inactive)
+      drop-shadow(0 0 3px $hs-entity-highlight-color-inactive) drop-shadow(0 0 3px $hs-entity-highlight-color-inactive);
+  }
+}
+
+@mixin hs-entity-dynamic-background {
+  /* background-image will be inserted from within the component */
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin hs-entity-value-text($font-size) {
+  @include hs-entity-text;
+  font-size: $font-size;
+  text-align: center;
+}
+
+@mixin hs-entity-ability-text($font-size) {
+  color: black;
+  font-size: $font-size;
+  text-align: center;
+}
+
+@mixin hs-entity-text {
+  @include _hs-entity-text-base;
+  font-family: 'Verdana', sans-serif;
+}
+
+@mixin _hs-entity-text-base {
+  color: white !important;
+  -webkit-font-smoothing: antialiased;
+  text-shadow:
+    #000 0px 0px 2px,
+    #000 0px 0px 2px,
+    #000 0px 0px 2px,
+    #000 0px 0px 2px,
+    #000 0px 0px 2px,
+    #000 0px 0px 2px;
+}
+
+// menu
+
+@mixin hs-control-text {
+  @include _hs-control-text-base;
+  font-family: 'Corben', cursive !important;
+  letter-spacing: 0.05em !important;
+}
+
+@mixin _hs-control-text-base {
+  color: white !important;
+  -webkit-font-smoothing: antialiased !important;
+  text-shadow:
+    #000 0px 0px 2px,
+    #000 0px 0px 2px,
+    #000 0px 0px 2px,
+    #000 0px 0px 2px,
+    #000 0px 0px 2px,
+    #000 0px 0px 2px;
+}
+
+@mixin hs-control-disabled {
+  opacity: 0.4 !important;
+}

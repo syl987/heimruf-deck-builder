@@ -1,0 +1,13 @@
+.mat-mdc-dialog-container {
+  .mat-mdc-dialog-surface {
+    border-radius: $border-radius !important;
+  }
+
+  .mdc-dialog__content {
+    color: inherit !important;
+  }
+}
+
+.mat-mdc-dialog-actions {
+  justify-content: end !important;
+}

@@ -1,0 +1,16 @@
+@each $key, $value in $spacers {
+  .gap-x-#{$key} {
+    margin-left: -0.5 * $value !important;
+    margin-right: -0.5 * $value !important;
+
+    > * {
+      margin-left: 0.5 * $value !important;
+      margin-right: 0.5 * $value !important;
+    }
+  }
+  .gap-y-#{$key} {
+    > *:not(:last-child) {
+      margin-bottom: $value !important;
+    }
+  }
+}

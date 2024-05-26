@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="text-center mt-2xs mb-s">
+    <nav mat-tab-nav-bar [tabPanel]="tabPanel" mat-align-tabs="center" [mat-stretch-tabs]="false">
+      @for (cardClass of config.cardClasses; track cardClass) {
+        <a mat-tab-link routerLink="/library/cards/{{ cardClass | lowercase }}" routerLinkActive [active]="m0.isActive" #m0="routerLinkActive">{{ cardClass | titlecase }}</a>
+      }
+    </nav>
+  </div>
+
+  <mat-tab-nav-panel #tabPanel>
+    <div class="d-flex flex-wrap justify-content-center">
+      @for (card of cards(); track card.id) {
+        <button hs-entity-button contentType="card" (click)="selectedCard.set(card); openCardOverlay(); button._elementRef.nativeElement.blur()" class="mb-xs" #button>
+          @switch (card.type) {
+            @case (CardType.MINION) {
+              <hs-minion [data]="card" />
+            }
+            @case (CardType.SPELL) {
+              <hs-spell [data]="card" />
+            }
+            @case (CardType.WEAPON) {
+              <hs-weapon [data]="card" />
+            }
+          }
+        </button>
+      }
+    </div>
+  </mat-tab-nav-panel>
+</div>
+
+<ng-template #cardOverlay>
+  @if (selectedCard(); as card) {
+    <hs-entity-wrapper contentType="card" [scale]="selectedCardScale()" class="hs-entity-overlay-shadow">
+      @switch (card.type) {
+        @case (CardType.MINION) {
+          <hs-minion [data]="card" />
+        }
+        @case (CardType.SPELL) {
+          <hs-spell [data]="card" />
+        }
+        @case (CardType.WEAPON) {
+          <hs-weapon [data]="card" />
+        }
+      }
+    </hs-entity-wrapper>
+  }
+</ng-template>

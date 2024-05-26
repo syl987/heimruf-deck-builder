@@ -1,0 +1,7 @@
+{
+  "cardClasses": ["MAGE", "PRIEST", "WARRIOR", "NEUTRAL"],
+  "cardTypes": ["MINION", "SPELL", "WEAPON", "HERO"],
+  "cardSets": ["CORE", "EXPERT1"],
+  "version": "31353",
+  "locale": "enUS"
+}

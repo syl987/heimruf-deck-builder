@@ -1,0 +1,52 @@
+@use '@angular/material' as mat;
+
+.mat-mdc-list-base .mat-mdc-list-item {
+  border-radius: $border-radius !important;
+
+  .mat-ripple-element {
+    border-radius: $border-radius !important;
+  }
+}
+
+.mat-mdc-list-base .mat-mdc-list-item .mat-list-icon {
+  // scale down
+  &.fa.fa-users {
+    font-size: 1.25 * 80% !important;
+    margin-top: 3px !important;
+  }
+
+  // scale down
+  &.fa.fa-handshake-o {
+    font-size: 1.25 * 80% !important;
+    margin-top: 2px !important;
+  }
+}
+
+button.mat-mdc-list-item:not(:hover),
+button.mat-mdc-list-item:not(:focus) {
+  background-color: transparent; // workaround: prevent fallback to browser defaults
+}
+
+.mat-list-option:hover,
+.mat-list-option:focus,
+.mat-nav-list .mat-mdc-list-item:hover,
+.mat-nav-list .mat-mdc-list-item:focus,
+.mat-action-list .mat-mdc-list-item:hover,
+.mat-action-list .mat-mdc-list-item:focus {
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: mat.get-color-from-palette($hs-primary, 50);
+
+  .mat-ripple-element {
+    background-color: rgba(mat.get-color-from-palette($hs-primary), 0.12);
+  }
+}
+
+.mat-mdc-list-item.active {
+  background-color: mat.get-color-from-palette($app-primary, 50);
+}

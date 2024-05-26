@@ -1,0 +1,52 @@
+@use '@angular/material' as mat;
+
+.mat-mdc-button,
+.mat-mdc-outlined-button,
+.mat-mdc-raised-button,
+.mat-mdc-unelevated-button {
+  border-radius: $border-radius !important;
+  padding-right: app-spacer(s) !important;
+  padding-left: app-spacer(s) !important;
+}
+
+.mat-mdc-button,
+.mat-mdc-icon-button,
+.mat-mdc-raised-button,
+.mat-mdc-unelevated-button,
+.mat-mdc-mini-fab {
+  line-height: 30px !important;
+}
+
+.mat-mdc-outlined-button {
+  &.mat-primary:not([disabled]) {
+    background-color: rgba(mat.get-color-from-palette($hs-primary), 0.08);
+    border-color: mat.get-color-from-palette($hs-primary);
+  }
+  &.mat-accent:not([disabled]) {
+    background-color: rgba(mat.get-color-from-palette($hs-accent), 0.08);
+    border-color: mat.get-color-from-palette($hs-accent);
+  }
+  &.mat-warn:not([disabled]) {
+    background-color: rgba(mat.get-color-from-palette($hs-warn), 0.08);
+    border-color: mat.get-color-from-palette($hs-warn);
+  }
+  &[disabled] {
+    background-color: rgba(0, 0, 0, 0.04);
+    border-color: currentColor;
+  }
+  &:not(.mat-primary):not(.mat-accent):not(.mat-warn) {
+    border-color: rgba(0, 0, 0, 0.32);
+  }
+}
+
+.mat-mdc-button,
+.mat-mdc-icon-button {
+  .mdc-button__label {
+    @include hs-control-text;
+  }
+
+  &:disabled,
+  &[disabled] {
+    @include hs-control-disabled;
+  }
+}

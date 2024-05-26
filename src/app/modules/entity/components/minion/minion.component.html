@@ -1,0 +1,32 @@
+<img [src]="templateUrl" alt="Template Image" class="hs-minion-template-image" />
+
+<img [src]="image256xUrl" alt="Image" class="hs-minion-image" />
+
+<div class="hs-minion-cost-value">{{ data().cost }}</div>
+<div class="hs-minion-attack-value">{{ data().attack }}</div>
+<div class="hs-minion-health-value">{{ data().health }}</div>
+
+<div class="hs-minion-name-value">
+  <svg viewBox="0 0 226 50">
+    <path id="hs-minion-name-curve" d="M0,30 C30,60 150,0 226,50" style="fill: transparent" />
+    <text width="226" fill="white">
+      <textPath startOffset="50%" xlink:href="#hs-minion-name-curve" style="text-anchor: middle">{{ data().name }}</textPath>
+    </text>
+  </svg>
+</div>
+
+@if (rarityCrystalStyleUrl) {
+  <div class="hs-minion-rarity-crystal" [style.background-image]="rarityCrystalStyleUrl"></div>
+}
+@if (data().race; as race) {
+  <div class="hs-minion-race-wrapper" [style.background-image]="raceDecorationStyleUrl">
+    <div class="hs-minion-race-value">{{ race | titlecase }}</div>
+  </div>
+}
+<div class="hs-minion-text-wrapper">
+  <div class="hs-minion-text-value" [innerHTML]="data().text | safeHtml"></div>
+</div>
+
+@if (data().elite) {
+  <div class="hs-minion-dragon-decoration" [style.background-image]="dragonDecorationStyleUrl"></div>
+}

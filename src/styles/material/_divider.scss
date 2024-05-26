@@ -1,0 +1,22 @@
+.mat-divider {
+  border-color: white !important;
+  box-shadow:
+    #000 0px 0px 2px,
+    #000 0px 0px 2px,
+    #000 0px 0px 2px,
+    #000 0px 0px 2px,
+    #000 0px 0px 2px,
+    #000 0px 0px 2px;
+
+  &.mat-divider-horizontal {
+    border-top-width: 3px !important;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  &.mat-divider-vertical {
+    border-right-width: 3px !important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}

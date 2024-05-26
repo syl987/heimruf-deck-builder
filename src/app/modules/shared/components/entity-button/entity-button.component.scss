@@ -1,0 +1,66 @@
+// Note: parts of this components' source code (including template and styles) originate from @angular/material.
+
+@import 'shared';
+
+.hs-entity-button {
+  @include hs-entity-highlighting;
+
+  box-sizing: border-box;
+  position: initial;
+
+  background: none;
+  border: none;
+  padding: initial;
+  user-select: none;
+  outline: none;
+
+  -webkit-tap-highlight-color: transparent;
+
+  cursor: pointer;
+
+  &[disabled] {
+    cursor: default;
+  }
+
+  // Explicitly set the default overflow to `visible`. It is already set
+  // on most browsers except on IE11 where it defaults to `hidden`.
+  overflow: visible;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.hs-card-button-ripple.mat-ripple {
+  top: 6% !important;
+  left: 7% !important;
+  right: 6% !important;
+  bottom: 2% !important;
+  position: absolute;
+  border-radius: 16px !important;
+}
+
+.hs-hero-button-ripple.mat-ripple {
+  top: 8% !important;
+  left: 8% !important;
+  right: 14% !important;
+  bottom: 9% !important;
+  position: absolute;
+  border-top-left-radius: 45% !important;
+  border-top-right-radius: 45% !important;
+  border-bottom-left-radius: 45% !important;
+  border-bottom-right-radius: 30% !important;
+}
+
+.hs-tile-button-ripple.mat-ripple {
+  top: 8% !important;
+  left: 3% !important;
+  right: 1% !important;
+  bottom: 12% !important;
+  position: absolute;
+  border-radius: 6px !important;
+}

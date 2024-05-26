@@ -1,0 +1,30 @@
+// dynamic sub-element
+.hs-justify-subcontent-center > .mat-tab-links {
+  justify-content: center;
+}
+
+// TODO find out the appropriate classes
+.mat-mdc-tab-link {
+  @include hs-control-text;
+  opacity: 1 !important; // no transparency on inactive links
+  height: 42px !important; // make a little smaller then 48px
+
+  &.mdc-tab--active,
+  &.cdk-keyboard-focused {
+    background-color: rgba(0, 0, 0, 0.12) !important;
+    border-radius: 4px; // align with button
+  }
+
+  .mdc-tab__text-label {
+    color: white !important;
+  }
+}
+
+.mat-mdc-tab-disabled {
+  @include hs-control-disabled;
+}
+
+.mat-mdc-tab-nav-bar {
+  --mat-tab-header-active-ripple-color: rgba(0, 0, 0, 0.6);
+  --mat-tab-header-inactive-ripple-color: rgba(0, 0, 0, 0.6);
+}

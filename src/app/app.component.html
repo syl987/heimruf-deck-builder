@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="h2 hs-title text-center">{{ options.applicationName }}</h1>
+  @if (warning()) {
+    <mat-card class="mb-s">
+      <mat-card-content><b>Warning:</b> for optimal viewing experience, please use this app on a larger screen.</mat-card-content>
+    </mat-card>
+  }
+</div>
+
+<nav mat-tab-nav-bar [tabPanel]="tabPanel" mat-align-tabs="center" [mat-stretch-tabs]="false">
+  <a mat-tab-link routerLink="/welcome" routerLinkActive [active]="m0.isActive" #m0="routerLinkActive">Welcome</a>
+  <a mat-tab-link routerLink="/deck-builder" routerLinkActive [active]="m1.isActive" #m1="routerLinkActive">Deck Builder</a>
+  <a mat-tab-link routerLink="/library" routerLinkActive [active]="m2.isActive" #m2="routerLinkActive">Library</a>
+</nav>
+
+<mat-tab-nav-panel class="flex-grow-1" #tabPanel>
+  <router-outlet />
+</mat-tab-nav-panel>
+
+<footer class="container-fluid pt-2m pb-s d-flex flex-column-reverse flex-md-row align-items-center pt-2m pb-s">
+  <div class="fw-bold fs-small py-2xs">© {{ options.copyrightYear }} {{ options.copyrightName }} <span class="text-muted">(work in progress)</span></div>
+
+  <!-- transparent vertical / horizontal separator -->
+  <div class="mb-2xs me-auto"></div>
+
+  <div class="fw-bold fs-small text-muted">v{{ build.version }} / last updated: {{ build.date | date }}</div>
+</footer>

@@ -1,0 +1,60 @@
+<div class="container-fluid d-flex justify-content-between">
+  <div class="d-flex flex-column">
+    <mat-button-toggle-group #group="matButtonToggleGroup" [value]="filter()" (change)="filterCards($event.value)" class="d-flex flex-wrap mb-s mat-elevation-z0">
+      <mat-button-toggle [value]="SelectionFilter.CLASS">{{ SelectionFilter.CLASS | titlecase }}</mat-button-toggle>
+      <mat-button-toggle [value]="SelectionFilter.NEUTRAL" class="me-s">{{ SelectionFilter.NEUTRAL | titlecase }}</mat-button-toggle>
+
+      <mat-button-toggle [value]="SelectionFilter.COST_0">0</mat-button-toggle>
+      <mat-button-toggle [value]="SelectionFilter.COST_1">1</mat-button-toggle>
+      <mat-button-toggle [value]="SelectionFilter.COST_2">2</mat-button-toggle>
+      <mat-button-toggle [value]="SelectionFilter.COST_3">3</mat-button-toggle>
+      <mat-button-toggle [value]="SelectionFilter.COST_4">4</mat-button-toggle>
+      <mat-button-toggle [value]="SelectionFilter.COST_5">5</mat-button-toggle>
+      <mat-button-toggle [value]="SelectionFilter.COST_6">6</mat-button-toggle>
+      <mat-button-toggle [value]="SelectionFilter.COST_7_PLUS">7+</mat-button-toggle>
+
+      <!-- <mat-button-toggle [value]="SelectionFilter.MINION">{{ SelectionFilter.MINION | titlecase }}</mat-button-toggle> -->
+      <!-- <mat-button-toggle [value]="SelectionFilter.SPELL">{{ SelectionFilter.SPELL | titlecase }}</mat-button-toggle> -->
+      <!-- <mat-button-toggle [value]="SelectionFilter.WEAPON">{{ SelectionFilter.WEAPON | titlecase }}</mat-button-toggle> -->
+    </mat-button-toggle-group>
+
+    <div class="d-flex flex-wrap ms-n2xs">
+      @for (card of cards(); track card.id) {
+        <button hs-entity-button contentType="card" (click)="addCard(card)" class="mb-xs">
+          @switch (card.type) {
+            @case (CardType.MINION) {
+              <hs-minion [data]="card" />
+            }
+            @case (CardType.SPELL) {
+              <hs-spell [data]="card" />
+            }
+            @case (CardType.WEAPON) {
+              <hs-weapon [data]="card" />
+            }
+          }
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="d-flex flex-column ms-3xs" style="min-width: 258px">
+    <a hs-entity-button contentType="hero" routerLink="/deck-builder" class="mx-auto my-3xs" aria-label="Select hero">
+      <hs-hero [data]="$any(hero())" />
+    </a>
+
+    @for (cardCount of deckCardCounts(); track cardCount.card.id) {
+      <button hs-entity-button contentType="tile" scale="0.9" (click)="removeCard(cardCount.card.id)" class="mb-3xs">
+        <hs-card [data]="cardCount.card" [count]="cardCount.count" />
+      </button>
+    }
+    <p class="text-center fs-large fw-bold text-nowrap my-2xs">Deck: {{ deckCardsTotal() }} / 30 cards</p>
+
+    @if (deckEmpty()) {
+      <p class="text-center text-muted fw-bold">Click on cards on the left to add them to your deck.</p>
+    } @else {
+      <div class="text-center">
+        <button mat-button (click)="removeAllCards()" [disabled]="deckEmpty()">Clear</button>
+      </div>
+    }
+  </div>
+</div>
