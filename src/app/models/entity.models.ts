@@ -17,7 +17,7 @@ interface EntityBase {
 
   mechanics?: Mechanics[];
   referencedTags?: Mechanics[];
-  playRequirements?: { [req: string]: number };
+  playRequirements?: Record<string, number>;
   targetingArrowText?: string;
 }
 

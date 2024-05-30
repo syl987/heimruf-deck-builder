@@ -12,6 +12,7 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/strict",
+        "plugin:@typescript-eslint/stylistic",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:@ngrx/recommended",
@@ -22,7 +23,7 @@
       "plugins": ["deprecation", "import", "simple-import-sort", "unused-imports"],
       "rules": {
         // ==== deprecation ====
-        "deprecation/deprecation": ["off"],
+        "deprecation/deprecation": "warn",
 
         // ==== imports ====
         "import/first": "warn",
@@ -69,8 +70,8 @@
         "no-lone-blocks": "warn",
         "no-lonely-if": "warn",
         "no-new-func": "warn",
-        "no-new-object": "warn",
         "no-new-wrappers": "warn",
+        "no-object-constructor": "warn",
         "no-octal-escape": "warn",
         "no-proto": "warn",
         "no-restricted-imports": ["warn", { "paths": ["rxjs/operators"], "patterns": [] }],
@@ -92,7 +93,6 @@
         "yoda": ["warn", "never", { "exceptRange": true }],
 
         // ==== @typescript-eslint: supported rules ====
-        "@typescript-eslint/consistent-indexed-object-style": ["warn", "index-signature"],
         "@typescript-eslint/explicit-function-return-type": "warn",
         "@typescript-eslint/explicit-member-accessibility": ["warn", { "accessibility": "no-public" }],
         "@typescript-eslint/member-ordering": ["error", { "default": ["static-field", "instance-field", "constructor", "static-method", "instance-method"] }],
@@ -100,7 +100,6 @@
         "@typescript-eslint/no-empty-interface": "off", // recommended overide: useful with inheritence and libraries
         "@typescript-eslint/no-explicit-any": "off", // strict override: useful with libraries and generic data
         "@typescript-eslint/no-extraneous-class": "off", // strict override: support angular annotated empty classes
-        "@typescript-eslint/no-invalid-void-type": "off", // strict override: allow angular void outputs
         "@typescript-eslint/no-non-null-assertion": "off", // recommended override: useful with angular and specs at times
         "@typescript-eslint/no-useless-constructor": "off", // strict overide: needed in annotated angular classes
         "@typescript-eslint/parameter-properties": ["warn", { "prefer": "parameter-property", "allow": ["readonly", "protected readonly", "private readonly"] }],
@@ -116,30 +115,26 @@
         "@typescript-eslint/no-unused-vars": ["warn", { "args": "none", "varsIgnorePattern": "^_+$" }], // recommended override: provide special options
 
         // ==== @angular-eslint: typescript ====
-        "@angular-eslint/no-host-metadata-property": "off", // recommended override: comfortable syntax
         "@angular-eslint/no-inputs-metadata-property": "off", // recommended override: necessary for extending a component
         "@angular-eslint/no-outputs-metadata-property": "off" // recommended override: necessary for extending a component
       }
     },
     {
       "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "extends": ["plugin:@angular-eslint/template/recommended", "plugin:@angular-eslint/template/accessibility"],
       "rules": {
         // ==== @angular-eslint: template ====
         "@angular-eslint/template/attributes-order": "off", // currently unused
-        "@angular-eslint/template/conditional-complexity": "warn",
-        "@angular-eslint/template/cyclomatic-complexity": "off",
         "@angular-eslint/template/eqeqeq": ["warn", { "allowNullOrUndefined": true }], // recommended override: provide options
         "@angular-eslint/template/i18n": "off", // currently unused
         "@angular-eslint/template/no-any": "warn",
         "@angular-eslint/template/no-duplicate-attributes": "warn",
-        "@angular-eslint/template/no-positive-tabindex": "warn",
-        "@angular-eslint/template/use-track-by-function": "off" // currently unused
+        "@angular-eslint/template/no-positive-tabindex": "warn"
       }
     },
     {
       "files": ["scripts/**/*.js"],
-      "extends": ["eslint:recommended", "plugin:node/recommended", "prettier"]
+      "extends": ["eslint:recommended", "prettier"]
     }
   ]
 }
