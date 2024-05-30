@@ -40,13 +40,13 @@ button.mat-mdc-list-item:not(:focus) {
   background-attachment: initial;
   background-origin: initial;
   background-clip: initial;
-  background-color: mat.get-color-from-palette($hs-primary, 50);
+  background-color: mat.m2-get-color-from-palette($hs-primary, 50);
 
   .mat-ripple-element {
-    background-color: rgba(mat.get-color-from-palette($hs-primary), 0.12);
+    background-color: rgba(mat.m2-get-color-from-palette($hs-primary), 0.12);
   }
 }
 
 .mat-mdc-list-item.active {
-  background-color: mat.get-color-from-palette($app-primary, 50);
+  background-color: mat.m2-get-color-from-palette($app-primary, 50);
 }

@@ -1,5 +1,5 @@
 import { registerLocaleData } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import deLocale from '@angular/common/locales/de';
 import { ApplicationRef, DEFAULT_CURRENCY_CODE, DoBootstrap, isDevMode, LOCALE_ID, NgModule } from '@angular/core';
 import { MAT_BUTTON_TOGGLE_DEFAULT_OPTIONS } from '@angular/material/button-toggle';
@@ -54,7 +54,6 @@ const appOptions: AppOptions = {
 @NgModule({
   imports: [
     BrowserAnimationsModule,
-    HttpClientModule,
     StoreModule.forRoot(reducers, config),
     EffectsModule.forRoot(effects),
     StoreRouterConnectingModule.forRoot(routerStoreConfig),
@@ -68,6 +67,7 @@ const appOptions: AppOptions = {
   ],
   declarations: [AppComponent, WelcomePageComponent],
   providers: [
+    provideHttpClient(withInterceptorsFromDi()),
     { provide: LOCALE_ID, useValue: 'de' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
     { provide: APP_OPTIONS, useValue: appOptions },
