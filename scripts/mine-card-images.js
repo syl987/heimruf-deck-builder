@@ -1,5 +1,4 @@
 // @ts-check
-
 import * as fs from 'fs';
 import fetch from 'node-fetch';
 import * as path from 'path';
