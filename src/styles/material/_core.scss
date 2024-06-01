@@ -5,41 +5,89 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.core-theme($hs-light-theme);
-/* @include mat.autocomplete-theme($hs-light-theme); */
-/* @include mat.badge-theme($hs-light-theme); */
-/* @include mat.bottom-sheet-theme($hs-light-theme); */
-@include mat.button-theme($hs-light-theme);
-@include mat.button-toggle-theme($hs-light-theme);
-@include mat.card-theme($hs-light-theme);
-/* @include mat.checkbox-theme($hs-light-theme); */
-/* @include mat.chips-theme($hs-light-theme); */
-/* @include mat.datepicker-theme($hs-light-theme); */
-/* @include mat.dialog-theme($hs-light-theme); */
-/* @include mat.divider-theme($hs-light-theme); */
-/* @include mat.expansion-theme($hs-light-theme); */
-/* @include mat.form-field-theme($hs-light-theme); */
-/* @include mat.grid-list-theme($hs-light-theme); */
-/* @include mat.icon-theme($hs-light-theme); */
-/* @include mat.input-theme($hs-light-theme); */
-/* @include mat.list-theme($hs-light-theme); */
-/* @include mat.menu-theme($hs-light-theme); */
-/* @include mat.paginator-theme($hs-light-theme); */
-/* @include mat.progress-bar-theme($hs-light-theme); */
-/* @include mat.progress-spinner-theme($hs-light-theme); */
-/* @include mat.radio-theme($hs-light-theme); */
-/* @include mat.select-theme($hs-light-theme); */
-/* @include mat.sidenav-theme($hs-light-theme); */
-/* @include mat.slide-toggle-theme($hs-light-theme); */
-/* @include mat.slider-theme($hs-light-theme); */
-@include mat.snack-bar-theme($hs-light-theme);
-/* @include mat.stepper-theme($hs-light-theme); */
-/* @include mat.sort-theme($hs-light-theme); */
-/* @include mat.table-theme($hs-light-theme); */
-@include mat.tabs-theme($hs-light-theme);
-/* @include mat.toolbar-theme($hs-light-theme); */
-/* @include mat.tooltip-theme($hs-light-theme); */
-/* @include mat.tree-theme($hs-light-theme); */
+html {
+  // Apply the light theme by default.
+
+  // Include theme styles for core and each component used in your app.
+  // Alternatively, you can import and @include the theme mixins for each component
+  // that you are using.
+  @include mat.core-theme($light-theme);
+  /* @include mat.autocomplete-theme($light-theme); */
+  /* @include mat.badge-theme($light-theme); */
+  /* @include mat.bottom-sheet-theme($light-theme); */
+  @include mat.button-theme($light-theme);
+  @include mat.button-toggle-theme($light-theme);
+  @include mat.card-theme($light-theme);
+  /* @include mat.checkbox-theme($light-theme); */
+  /* @include mat.chips-theme($light-theme); */
+  /* @include mat.datepicker-theme($light-theme); */
+  /* @include mat.dialog-theme($light-theme); */
+  /* @include mat.divider-theme($light-theme); */
+  /* @include mat.expansion-theme($light-theme); */
+  /* @include mat.form-field-theme($light-theme); */
+  /* @include mat.grid-list-theme($light-theme); */
+  /* @include mat.icon-theme($light-theme); */
+  /* @include mat.input-theme($light-theme); */
+  /* @include mat.list-theme($light-theme); */
+  /* @include mat.menu-theme($light-theme); */
+  /* @include mat.paginator-theme($light-theme); */
+  /* @include mat.progress-bar-theme($light-theme); */
+  /* @include mat.progress-spinner-theme($light-theme); */
+  /* @include mat.radio-theme($light-theme); */
+  /* @include mat.select-theme($light-theme); */
+  /* @include mat.sidenav-theme($light-theme); */
+  /* @include mat.slide-toggle-theme($light-theme); */
+  /* @include mat.slider-theme($light-theme); */
+  @include mat.snack-bar-theme($light-theme);
+  /* @include mat.stepper-theme($light-theme); */
+  /* @include mat.sort-theme($light-theme); */
+  /* @include mat.table-theme($light-theme); */
+  @include mat.tabs-theme($light-theme);
+  /* @include mat.toolbar-theme($light-theme); */
+  /* @include mat.tooltip-theme($light-theme); */
+  /* @include mat.tree-theme($light-theme); */
+  @include mat.strong-focus-indicators-theme($light-theme);
+
+  // Apply the dark theme only when the user prefers dark themes.
+  @media (prefers-color-scheme: dark) {
+    // Include theme styles for core and each component used in your app.
+    // Alternatively, you can import and @include the theme mixins for each component
+    // that you are using.
+    @include mat.core-theme($dark-theme);
+    /* @include mat.autocomplete-theme($dark-theme); */
+    /* @include mat.badge-theme($dark-theme); */
+    /* @include mat.bottom-sheet-theme($dark-theme); */
+    @include mat.button-theme($dark-theme);
+    @include mat.button-toggle-theme($dark-theme);
+    @include mat.card-theme($dark-theme);
+    /* @include mat.checkbox-theme($dark-theme); */
+    /* @include mat.chips-theme($dark-theme); */
+    /* @include mat.datepicker-theme($dark-theme); */
+    /* @include mat.dialog-theme($dark-theme); */
+    /* @include mat.divider-theme($dark-theme); */
+    /* @include mat.expansion-theme($dark-theme); */
+    /* @include mat.form-field-theme($dark-theme); */
+    /* @include mat.grid-list-theme($dark-theme); */
+    /* @include mat.icon-theme($dark-theme); */
+    /* @include mat.input-theme($dark-theme); */
+    /* @include mat.list-theme($dark-theme); */
+    /* @include mat.menu-theme($dark-theme); */
+    /* @include mat.paginator-theme($dark-theme); */
+    /* @include mat.progress-bar-theme($dark-theme); */
+    /* @include mat.progress-spinner-theme($dark-theme); */
+    /* @include mat.radio-theme($dark-theme); */
+    /* @include mat.select-theme($dark-theme); */
+    /* @include mat.sidenav-theme($dark-theme); */
+    /* @include mat.slide-toggle-theme($dark-theme); */
+    /* @include mat.slider-theme($dark-theme); */
+    @include mat.snack-bar-theme($dark-theme);
+    /* @include mat.stepper-theme($dark-theme); */
+    /* @include mat.sort-theme($dark-theme); */
+    /* @include mat.table-theme($dark-theme); */
+    @include mat.tabs-theme($dark-theme);
+    /* @include mat.toolbar-theme($dark-theme); */
+    /* @include mat.tooltip-theme($dark-theme); */
+    /* @include mat.tree-theme($dark-theme); */
+    @include mat.strong-focus-indicators-theme($dark-theme);
+  }
+}
