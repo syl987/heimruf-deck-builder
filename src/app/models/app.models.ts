@@ -15,4 +15,9 @@ export interface AppOptions {
 
 export const APP_OPTIONS = new InjectionToken<AppOptions>('APP_OPTIONS');
 
+/**
+ * Application-specific data options.
+ */
+export type AppDataConfig = typeof dataConfig;
+
 export const APP_DATA_CONFIG = new InjectionToken<typeof dataConfig>('APP_DATA_CONFIG');
