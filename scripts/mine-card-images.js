@@ -39,9 +39,9 @@ from(cards)
   .pipe(
     concatMap(({ id, collectible }, index) =>
       forkJoin([
-        fetch(`https://art.hearthstonejson.com/v1/512x/${id}.jpg`).then(res => res.buffer()),
-        fetch(`https://art.hearthstonejson.com/v1/256x/${id}.jpg`).then(res => res.buffer()),
-        fetch(`https://art.hearthstonejson.com/v1/tiles/${id}.jpg`).then(res => res.buffer()),
+        fetch(`https://art.hearthstonejson.com/v1/512x/${id}.jpg`).then(res => res.arrayBuffer().then(Buffer.from)),
+        fetch(`https://art.hearthstonejson.com/v1/256x/${id}.jpg`).then(res => res.arrayBuffer().then(Buffer.from)),
+        fetch(`https://art.hearthstonejson.com/v1/tiles/${id}.jpg`).then(res => res.arrayBuffer().then(Buffer.from)),
       ]).pipe(
         tap(([img512x, img256x, tile]) => {
           fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'misc', '512x', `${id}.jpg`), img512x);

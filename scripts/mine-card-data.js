@@ -22,8 +22,8 @@ from(['all', config.locale])
   .pipe(
     concatMap((locale, index) =>
       forkJoin([
-        fetch(`https://api.hearthstonejson.com/v1/${config.version}/${locale}/cards.collectible.json`).then(res => res.buffer()),
-        fetch(`https://api.hearthstonejson.com/v1/${config.version}/${locale}/cards.json`).then(res => res.buffer()),
+        fetch(`https://api.hearthstonejson.com/v1/${config.version}/${locale}/cards.collectible.json`).then(res => res.arrayBuffer().then(Buffer.from)),
+        fetch(`https://api.hearthstonejson.com/v1/${config.version}/${locale}/cards.json`).then(res => res.arrayBuffer().then(Buffer.from)),
       ]).pipe(
         tap(([all, localized]) => {
           fs.writeFileSync(path.join(basePath, locale, 'cards.collectible.json'), all);
