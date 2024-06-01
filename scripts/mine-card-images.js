@@ -12,7 +12,7 @@ console.log('Initializing image data miner...');
 console.log();
 
 const dataFile = fs.readFileSync(`data/json/hearthstonejson/v1/${config.version}/${config.locale}/cards.json`);
-const data = JSON.parse(dataFile.toString());
+const data = Array.from(JSON.parse(dataFile.toString()));
 
 const cards = data
   .filter(card => (config.cardClasses?.length ? config.cardClasses.some(cardClass => card.cardClass === cardClass) : true))
