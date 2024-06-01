@@ -5,12 +5,11 @@ import fetch from 'node-fetch';
 import * as path from 'path';
 import { concatMap, forkJoin, from, tap } from 'rxjs';
 
+import config from '../src/app.config.json' assert { type: 'json ' };
+
 console.log();
 console.log('Initializing image data miner...');
 console.log();
-
-const configFile = fs.readFileSync(`src/app.config.json`);
-const config = JSON.parse(configFile.toString());
 
 const dataFile = fs.readFileSync(`data/json/hearthstonejson/v1/${config.version}/${config.locale}/cards.json`);
 const data = JSON.parse(dataFile.toString());
