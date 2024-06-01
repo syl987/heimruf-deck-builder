@@ -5,7 +5,7 @@ export const DataActions = createActionGroup({
   source: 'Data',
   events: {
     'load': emptyProps(),
-    'load SUCCESS': props<{ entities: Entity[] }>(),
+    'load SUCCESS': props<{ cardData: Entity[] }>(),
     'load ERROR': emptyProps(),
   },
 });

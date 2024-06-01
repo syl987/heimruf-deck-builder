@@ -18,9 +18,9 @@ const dataFile = fs.readFileSync(`data/json/hearthstonejson/v1/${config.version}
 const data = JSON.parse(dataFile.toString());
 
 const cards = data
-  .filter(card => (config.cardClasses?.length ? config.cardClasses.some(cardClass => card.cardClass === cardClass) : true))
-  .filter(card => (config.cardTypes?.length ? config.cardTypes.some(type => card.type === type) : true))
-  .filter(card => (config.cardSets?.length ? config.cardSets.some(set => card.set === set) : true));
+  .filter(c => (config.cardClasses?.length ? config.cardClasses.some(cardClass => c.cardClass === cardClass) : true))
+  .filter(c => (config.cardTypes?.length ? config.cardTypes.some(type => c.type === type) : true))
+  .filter(c => (config.cardSets?.length ? config.cardSets.some(set => c.set === set) : true));
 
 const cardsTotal = cards.length;
 const startTime = new Date().valueOf();

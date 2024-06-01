@@ -9,22 +9,22 @@ import { Entity } from '../models/entity.models';
   providedIn: 'root',
 })
 export class DataService {
-  readonly baseUrl = '/assets/json';
+  readonly baseUrl = `/assets/json/hearthstonejson/v1/${this.config.version}/${this.config.locale || 'enUS'}`;
 
   constructor(
     private readonly http: HttpClient,
     @Inject(APP_DATA_CONFIG) private readonly config: AppDataConfig,
   ) {}
 
-  loadEntities(): Observable<Entity[]> {
-    const url = `${this.baseUrl}/hearthstonejson/v1/${this.config.version}/${this.config.locale || 'enUS'}/cards.collectible.json`;
+  loadCardData(): Observable<Entity[]> {
+    const url = `${this.baseUrl}/cards.collectible.json`;
 
     return this.http.get<Entity[]>(url).pipe(
-      map(entities =>
-        entities
-          .filter(e => (this.config.cardClasses.length ? this.config.cardClasses.some(cardClass => cardClass === e.cardClass) : true))
-          .filter(e => (this.config.cardTypes.length ? this.config.cardTypes.some(type => type === e.type) : true))
-          .filter(e => (this.config.cardSets.length ? this.config.cardSets.some(set => set === e.set) : true)),
+      map(cardData =>
+        cardData
+          .filter(c => (this.config.cardClasses?.length ? this.config.cardClasses.some(cardClass => cardClass === c.cardClass) : true))
+          .filter(c => (this.config.cardTypes?.length ? this.config.cardTypes.some(type => type === c.type) : true))
+          .filter(c => (this.config.cardSets?.length ? this.config.cardSets.some(set => set === c.set) : true)),
       ),
     );
   }

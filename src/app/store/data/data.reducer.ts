@@ -26,8 +26,8 @@ export const reducer = createReducer(
     loadPending: true,
     loadError: undefined,
   })),
-  on(DataActions.loadSUCCESS, (state, { entities }) =>
-    adapter.upsertMany(entities, {
+  on(DataActions.loadSUCCESS, (state, { cardData }) =>
+    adapter.upsertMany(cardData, {
       ...state,
       loadPending: false,
       loadError: undefined,

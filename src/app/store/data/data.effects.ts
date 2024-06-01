@@ -13,8 +13,8 @@ export class DataEffects implements OnInitEffects {
     return this.actions.pipe(
       ofType(DataActions.load),
       concatMap(_ =>
-        this.dataService.loadEntities().pipe(
-          map(entities => DataActions.loadSUCCESS({ entities })),
+        this.dataService.loadCardData().pipe(
+          map(cardData => DataActions.loadSUCCESS({ cardData })),
           catchError((err?: Partial<HttpErrorResponse>) => {
             switch (err?.status) {
               default:
