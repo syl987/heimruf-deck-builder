@@ -12,7 +12,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import * as appDataConfig from 'src/app.config.json';
+
+import * as dataConfig from 'src/data.config.json';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -71,7 +72,7 @@ const appOptions: AppOptions = {
     { provide: LOCALE_ID, useValue: 'de' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
     { provide: APP_OPTIONS, useValue: appOptions },
-    { provide: APP_DATA_CONFIG, useValue: appDataConfig },
+    { provide: APP_DATA_CONFIG, useValue: dataConfig },
     { provide: ErrorStateMatcher, useClass: DirtyAndTouchedMatcher },
     /* { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: dialogConfig }, */
     /* { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: formFieldConfig }, */

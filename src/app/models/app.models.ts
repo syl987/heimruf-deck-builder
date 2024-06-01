@@ -1,4 +1,5 @@
 import { InjectionToken } from '@angular/core';
+import * as dataConfig from 'src/data.config.json';
 
 /**
  * Application-specific variables.
@@ -14,22 +15,4 @@ export interface AppOptions {
 
 export const APP_OPTIONS = new InjectionToken<AppOptions>('APP_OPTIONS');
 
-/**
- * Application-specific data options.
- */
-export interface AppDataConfig {
-  /* Card classes to include in the application. */
-  readonly cardClasses: readonly string[];
-  /* Card types to include in the application. */
-  readonly cardTypes: readonly string[];
-  /* Card sets to include in the application. */
-  readonly cardSets: readonly string[];
-  /* Whether to use the collectible or full data file. */
-  readonly collectibleOnly: boolean;
-  /* Hearthstonejson data version. */
-  readonly version: string;
-  /* Hearthstonejson data locale. */
-  readonly locale: string;
-}
-
-export const APP_DATA_CONFIG = new InjectionToken<AppDataConfig>('APP_DATA_CONFIG');
+export const APP_DATA_CONFIG = new InjectionToken<typeof dataConfig>('APP_DATA_CONFIG');
