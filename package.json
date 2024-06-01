@@ -14,8 +14,8 @@
     "browsers": "browserslist --coverage && browserslist",
     "browsers:update": "browserslist --update-db",
     "mine": "npm run mine:data&&npm run mine:images",
-    "mine:data": "node --no-warnings=ExperimentalWarning --loader ts-node/esm tools/mine-card-data.ts",
-    "mine:images": "node --no-warnings=ExperimentalWarning --loader ts-node/esm tools/mine-card-images.ts",
+    "mine:data": "node scripts/mine-card-data.js",
+    "mine:images": "node --no-warnings=ExperimentalWarning scripts/mine-card-images.js",
     "analyze": "ng build --stats-json && webpack-bundle-analyzer dist/heimruf-deck-builder/stats.json",
     "prepare": "husky"
   },

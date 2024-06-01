@@ -1,19 +1,16 @@
+// @ts-check
+
 import * as fs from 'fs';
 import fetch from 'node-fetch';
 import * as path from 'path';
 import { concatMap, forkJoin, from, tap } from 'rxjs';
-
-interface AppDataConfig {
-  version: string;
-  locale: string;
-}
 
 console.log();
 console.log('Initializing card data miner...');
 console.log();
 
 const configFile = fs.readFileSync(`src/app.config.json`);
-const config: AppDataConfig = JSON.parse(configFile.toString());
+const config = JSON.parse(configFile.toString());
 
 const startTime = new Date().valueOf();
 
