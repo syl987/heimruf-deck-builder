@@ -1,10 +1,13 @@
 // @ts-check
 import * as fs from 'fs';
+import { createRequire } from 'module';
 import fetch from 'node-fetch';
 import * as path from 'path';
 import { concatMap, forkJoin, from, tap } from 'rxjs';
 
-import config from '../src/data.config.json' assert { type: 'json ' };
+const require = createRequire(import.meta.url);
+
+const config = require('../src/data.config.json');
 
 console.log();
 console.log('Initializing card data miner...');
