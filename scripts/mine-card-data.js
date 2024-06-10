@@ -5,19 +5,18 @@ import fetch from 'node-fetch';
 import * as path from 'path';
 import { concatMap, forkJoin, from, tap } from 'rxjs';
 
-const require = createRequire(import.meta.url);
-
-const config = require('../src/data.config.json');
-
 console.log();
 console.log('Initializing card data miner...');
 console.log();
 
 const startTime = new Date().valueOf();
 
-const basePath = path.join('data', 'json', 'hearthstonejson', 'v1', config.version);
+const require = createRequire(import.meta.url);
+const config = require('../src/data.config.json');
 
 const locales = ['all', config.locale];
+
+const basePath = path.join('data', 'json', 'hearthstonejson', 'v1', config.version);
 
 locales.forEach(locale => {
   fs.mkdir(`${basePath}/${locale}`, { recursive: true }, err => err && console.error(`Folder not created.`));

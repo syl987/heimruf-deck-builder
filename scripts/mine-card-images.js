@@ -5,13 +5,14 @@ import fetch from 'node-fetch';
 import * as path from 'path';
 import { concatMap, forkJoin, from, tap } from 'rxjs';
 
-const require = createRequire(import.meta.url);
-
-const config = require('../src/data.config.json');
-
 console.log();
 console.log('Initializing image data miner...');
 console.log();
+
+const startTime = new Date().valueOf();
+
+const require = createRequire(import.meta.url);
+const config = require('../src/data.config.json');
 
 const dataFile = fs.readFileSync(`data/json/hearthstonejson/v1/${config.version}/${config.locale}/cards.json`);
 /** @type{Array.<import("../src/app/models/entity.models").Entity>} */
@@ -23,7 +24,6 @@ const cards = data
   .filter(c => (config.cardSets?.length ? config.cardSets.some(set => c.set === set) : true));
 
 const cardsTotal = cards.length;
-const startTime = new Date().valueOf();
 
 const basePath = path.join('data', 'img', 'hearthstonejson', 'v1');
 
