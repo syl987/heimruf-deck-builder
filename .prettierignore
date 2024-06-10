@@ -50,6 +50,7 @@ Thumbs.db
 /.nx/cache
 /.husky
 /public/**/*
+/data
 .browserslistrc
 .editorconfig
 .eslintignore
