@@ -49,7 +49,7 @@ Thumbs.db
 # Custom
 /.nx/cache
 /.husky
-/public/**/*
+/public
 /data
 .browserslistrc
 .editorconfig

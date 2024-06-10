@@ -48,5 +48,5 @@ Thumbs.db
 
 # Custom
 /.nx/cache
-/public/**/*
+/public
 /data
