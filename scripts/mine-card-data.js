@@ -20,7 +20,9 @@ const basePath = path.join('data', 'json', 'hearthstonejson', 'v1', config.versi
 fs.mkdir(`${basePath}/all`, { recursive: true }, err => err && console.error(`Folder not created.`));
 fs.mkdir(`${basePath}/${config.locale}`, { recursive: true }, err => err && console.error(`Folder not created.`));
 
-from(['all', config.locale])
+const locales = ['all', config.locale];
+
+from(locales)
   .pipe(
     concatMap((locale, index) =>
       forkJoin([
@@ -31,7 +33,7 @@ from(['all', config.locale])
           fs.writeFileSync(path.join(basePath, locale, 'cards.collectible.json'), collectibleCardData);
           fs.writeFileSync(path.join(basePath, locale, 'cards.json'), allCardData);
 
-          console.log(`Downloaded: ${locale} JSON data (${index + 1} / 2)`);
+          console.log(`Downloaded: ${locale} JSON data (${index + 1} / ${locales.length})`);
         }),
       ),
     ),
