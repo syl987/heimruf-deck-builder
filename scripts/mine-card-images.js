@@ -46,10 +46,10 @@ from(cards)
         fetch(`https://art.hearthstonejson.com/v1/256x/${id}.jpg`).then(res => res.arrayBuffer().then(Buffer.from)),
         fetch(`https://art.hearthstonejson.com/v1/tiles/${id}.jpg`).then(res => res.arrayBuffer().then(Buffer.from)),
       ]).pipe(
-        tap(([img512x, img256x, tile]) => {
-          fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'other', '512x', `${id}.jpg`), img512x);
-          fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'other', '256x', `${id}.jpg`), img256x);
-          fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'other', 'tile', `${id}.jpg`), tile);
+        tap(([img512xData, img256xData, imgTileData]) => {
+          fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'other', '512x', `${id}.jpg`), img512xData);
+          fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'other', '256x', `${id}.jpg`), img256xData);
+          fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'other', 'tile', `${id}.jpg`), imgTileData);
 
           const percent = ((index + 1) * 100) / cardsTotal;
 
