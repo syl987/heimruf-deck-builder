@@ -2,11 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) before June 22nd, 2019.
 
+## Deployment
+
+Run `npm run deploy` to deploy the application to firebase hosting [Heimruf Deck Builder](https://heimruf-deck-builder.web.app).
+
 ## Features
 
 ### Data Mining
 
-Card image data can be mined using the [image mining tool](src/tools).
+Card data and images can be downloaded using the [mining scripts](scripts) based on the app [data config](src/data.config.json).
 
 ### Deck Builder
 
@@ -14,7 +18,7 @@ Create your own deck, for each hero separately. Add / remove cards according to 
 
 ### Collection
 
-Browse your available cards without restrictions!
+Browse and view available cards!
 
 ### Technical
 
@@ -81,7 +85,7 @@ Visit [Bootstrap Utilities](https://getbootstrap.com/docs/5.1/utilities/spacing/
 
 ## Development server
 
-Run `ng serve` / `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -89,7 +93,7 @@ Run `ng generate component folder-name/component-name` to generate a new compone
 
 ## Build
 
-Run `ng build` / `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. The `--prod` / `--configuration=production` flag is not required for a production build anymore as it is now default.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Further help
 
