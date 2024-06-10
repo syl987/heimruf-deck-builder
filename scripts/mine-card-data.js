@@ -17,10 +17,9 @@ const startTime = new Date().valueOf();
 
 const basePath = path.join('data', 'json', 'hearthstonejson', 'v1', config.version);
 
-fs.mkdir(`${basePath}/all`, { recursive: true }, err => err && console.error(`Folder not created.`));
-fs.mkdir(`${basePath}/${config.locale}`, { recursive: true }, err => err && console.error(`Folder not created.`));
-
 const locales = ['all', config.locale];
+
+locales.forEach(locale => fs.mkdir(`${basePath}/${locale}`, { recursive: true }, err => err && console.error(`Folder not created.`)));
 
 from(locales)
   .pipe(
