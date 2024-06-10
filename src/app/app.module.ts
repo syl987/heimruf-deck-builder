@@ -12,7 +12,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
 import * as dataConfig from 'src/data.config.json';
 
 import { AppComponent } from './app.component';
