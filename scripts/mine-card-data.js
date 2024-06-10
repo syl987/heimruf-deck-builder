@@ -27,11 +27,11 @@ from(['all', config.locale])
         fetch(`https://api.hearthstonejson.com/v1/${config.version}/${locale}/cards.collectible.json`).then(res => res.arrayBuffer().then(Buffer.from)),
         fetch(`https://api.hearthstonejson.com/v1/${config.version}/${locale}/cards.json`).then(res => res.arrayBuffer().then(Buffer.from)),
       ]).pipe(
-        tap(([all, localized]) => {
-          fs.writeFileSync(path.join(basePath, locale, 'cards.collectible.json'), all);
-          fs.writeFileSync(path.join(basePath, locale, 'cards.json'), localized);
+        tap(([collectibleCardData, allCardData]) => {
+          fs.writeFileSync(path.join(basePath, locale, 'cards.collectible.json'), collectibleCardData);
+          fs.writeFileSync(path.join(basePath, locale, 'cards.json'), allCardData);
 
-          console.log(`Downloaded: ${locale} JSON data (${index + 1} / ${2})`);
+          console.log(`Downloaded: ${locale} JSON data (${index + 1} / 2)`);
         }),
       ),
     ),
