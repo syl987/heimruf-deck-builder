@@ -31,9 +31,9 @@ fs.mkdir(`${basePath}/collectible/512x`, { recursive: true }, err => err && cons
 fs.mkdir(`${basePath}/collectible/256x`, { recursive: true }, err => err && console.error(`Folder not created.`));
 fs.mkdir(`${basePath}/collectible/tile`, { recursive: true }, err => err && console.error(`Folder not created.`));
 
-fs.mkdir(`${basePath}/misc/512x`, { recursive: true }, err => err && console.error(`Folder not created.`));
-fs.mkdir(`${basePath}/misc/256x`, { recursive: true }, err => err && console.error(`Folder not created.`));
-fs.mkdir(`${basePath}/misc/tile`, { recursive: true }, err => err && console.error(`Folder not created.`));
+fs.mkdir(`${basePath}/other/512x`, { recursive: true }, err => err && console.error(`Folder not created.`));
+fs.mkdir(`${basePath}/other/256x`, { recursive: true }, err => err && console.error(`Folder not created.`));
+fs.mkdir(`${basePath}/other/tile`, { recursive: true }, err => err && console.error(`Folder not created.`));
 
 console.log('Total cards to process: ' + cardsTotal);
 console.log();
@@ -47,9 +47,9 @@ from(cards)
         fetch(`https://art.hearthstonejson.com/v1/tiles/${id}.jpg`).then(res => res.arrayBuffer().then(Buffer.from)),
       ]).pipe(
         tap(([img512x, img256x, tile]) => {
-          fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'misc', '512x', `${id}.jpg`), img512x);
-          fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'misc', '256x', `${id}.jpg`), img256x);
-          fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'misc', 'tile', `${id}.jpg`), tile);
+          fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'other', '512x', `${id}.jpg`), img512x);
+          fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'other', '256x', `${id}.jpg`), img256x);
+          fs.writeFileSync(path.join(basePath, collectible ? 'collectible' : 'other', 'tile', `${id}.jpg`), tile);
 
           const percent = ((index + 1) * 100) / cardsTotal;
 
