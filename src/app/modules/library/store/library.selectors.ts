@@ -1,4 +1,5 @@
 import { createSelector } from '@ngrx/store';
+
 import { notUndefined } from 'src/app/functions/typeguard.functions';
 import { isCard } from 'src/app/helpers/entity.helpers';
 import { selectDataEntityEntities } from 'src/app/store/data/data.selectors';

@@ -1,8 +1,8 @@
 import { createEntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 
-import { Entity } from '../../models/entity.models';
 import { DataActions } from './data.actions';
+import { Entity } from '../../models/entity.models';
 
 export const dataFeatureKey = 'data';
 

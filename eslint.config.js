@@ -5,7 +5,6 @@ const tseslint = require('typescript-eslint');
 const angular = require('angular-eslint');
 const imports = require('eslint-plugin-import');
 const regexp = require('eslint-plugin-regexp');
-const simpleImportSort = require('eslint-plugin-simple-import-sort');
 const unusedImports = require('eslint-plugin-unused-imports');
 const prettier = require('eslint-config-prettier');
 
@@ -23,7 +22,6 @@ module.exports = tseslint.config(
       prettier,
     ],
     plugins: {
-      'simple-import-sort': simpleImportSort,
       'unused-imports': unusedImports,
     },
     processor: angular.processInlineTemplates,
@@ -47,12 +45,20 @@ module.exports = tseslint.config(
       'import/no-absolute-path': 'warn',
       'import/no-duplicates': 'warn',
       'import/no-useless-path-segments': 'warn',
-      'simple-import-sort/imports': 'warn',
-      'simple-import-sort/exports': 'warn',
-      'unused-imports/no-unused-imports': 'warn',
+      'import/order': [
+        'warn',
+        {
+          'groups': ['external', 'internal', 'builtin', ['sibling', 'parent'], 'index', 'unknown'],
+          'newlines-between': 'always',
+          'alphabetize': { order: 'asc' },
+        },
+      ],
 
       // ==== regexp ====
       'regexp/sort-character-class-elements': 'warn',
+
+      // ==== unused-imports ====
+      'unused-imports/no-unused-imports': 'warn',
 
       // ==== eslint: possible problems ====
       'no-self-compare': 'warn',

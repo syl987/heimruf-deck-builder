@@ -1,7 +1,7 @@
 import { Dictionary } from '@ngrx/entity';
-import { Card, CardRarity, CardType, Entity, Hero, Minion, Spell, Weapon } from 'src/app/models/entity.models';
 
 import { Deck } from '../models/deck.models';
+import { Card, CardRarity, CardType, Entity, Hero, Minion, Spell, Weapon } from '../models/entity.models';
 
 export function mapEntity<T>(id: string | undefined, entities: Dictionary<T>): T | undefined {
   return id ? entities[id] : undefined;

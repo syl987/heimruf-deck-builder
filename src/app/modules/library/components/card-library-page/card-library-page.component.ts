@@ -9,6 +9,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { filter, first, map, merge } from 'rxjs';
+
 import { APP_DATA_CONFIG, AppDataConfig } from 'src/app/models/app.models';
 import { Card, CardType } from 'src/app/models/entity.models';
 import { EntityModule } from 'src/app/modules/entity/entity.module';

@@ -1,5 +1,6 @@
 import { TitleCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+
 import { Hero } from 'src/app/models/entity.models';
 
 const heroTemplate = 'assets/img/template/hero/standard-hero-template.png';

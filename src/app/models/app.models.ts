@@ -1,4 +1,5 @@
 import { InjectionToken } from '@angular/core';
+
 import * as dataConfig from 'src/data.config.json';
 
 /**

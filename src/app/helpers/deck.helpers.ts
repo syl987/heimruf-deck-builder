@@ -1,8 +1,8 @@
 import { Dictionary, EntityState } from '@ngrx/entity';
-import { CardType, Entity } from 'src/app/models/entity.models';
 
-import { Deck, DeckCardCount, DeckIdCount } from '../models/deck.models';
 import { entityComparer, mapEntity } from './entity.helpers';
+import { Deck, DeckCardCount, DeckIdCount } from '../models/deck.models';
+import { CardType, Entity } from '../models/entity.models';
 
 export function toCardCounts(cardIdCounts: DeckIdCount[], entities: Dictionary<Entity>): DeckCardCount[] {
   return cardIdCounts

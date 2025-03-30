@@ -1,8 +1,7 @@
-import { CardClass, Entity } from 'src/app/models/entity.models';
-
-import { notUndefined } from '../functions/typeguard.functions';
-import { PrefilteredCardIds } from '../models/prefilter.models';
 import { entityComparer, isCard, isHero, isMinion, isSpell, isWeapon } from './entity.helpers';
+import { notUndefined } from '../functions/typeguard.functions';
+import { CardClass, Entity } from '../models/entity.models';
+import { PrefilteredCardIds } from '../models/prefilter.models';
 
 export function createCollectibleCardPrefilter(items: Entity[]): PrefilteredCardIds[] {
   const classes = items

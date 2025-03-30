@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+
 import { getStyleUrl } from 'src/app/helpers/style.helpers';
 import { CardClass, CardRarity, Spell } from 'src/app/models/entity.models';
 import { SharedModule } from 'src/app/modules/shared/shared.module';

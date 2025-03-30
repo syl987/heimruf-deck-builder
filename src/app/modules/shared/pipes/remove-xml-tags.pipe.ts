@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { XML_TAGS_REGEX } from '../../../models/regex.models';
+import { XML_TAGS_REGEX } from 'src/app/models/regex.models';
 
 @Pipe({
   name: 'removeXmlTags',

@@ -1,12 +1,13 @@
 import { createEntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
+
 import { getSelectedDeck } from 'src/app/helpers/deck.helpers';
 import { emptyDeck } from 'src/app/helpers/entity.helpers';
 import { Deck } from 'src/app/models/deck.models';
 import { SelectionFilter } from 'src/app/models/library.models';
 
-import { createDeckAdapter } from '../adapters/deck.adapter';
 import { DeckBuilderActions } from './deck-builder.actions';
+import { createDeckAdapter } from '../adapters/deck.adapter';
 
 export const deckBuilderFeatureKey = 'deck-builder';
 

@@ -3,6 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { concatLatestFrom } from '@ngrx/operators';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs';
+
 import { CardRarity } from 'src/app/models/entity.models';
 import { ToastActions } from 'src/app/store/toast/toast.actions';
 

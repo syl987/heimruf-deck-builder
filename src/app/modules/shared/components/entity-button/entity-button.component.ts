@@ -3,7 +3,9 @@ import { Platform } from '@angular/cdk/platform';
 import { ChangeDetectionStrategy, Component, ElementRef, Inject, input, NgZone, OnInit, Optional, ViewEncapsulation } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
+
 import { EntityContentType } from 'src/app/models/entity.models';
+
 import { EntityWrapperComponent } from '../entity-wrapper/entity-wrapper.component';
 
 function getEntityButtonRippleClass(contentType: EntityContentType): string {

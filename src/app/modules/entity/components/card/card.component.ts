@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+
 import { Card, CardRarity } from 'src/app/models/entity.models';
 
 const cardTemplate = 'assets/img/template/selection-card-template.png';

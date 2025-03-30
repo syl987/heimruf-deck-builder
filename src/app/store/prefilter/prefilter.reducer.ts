@@ -1,8 +1,8 @@
 import { createEntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 
-import { PrefilteredCardIds } from '../../models/prefilter.models';
 import { PrefilterActions } from './prefilter.actions';
+import { PrefilteredCardIds } from '../../models/prefilter.models';
 
 export const PAGE_SIZE = 10;
 

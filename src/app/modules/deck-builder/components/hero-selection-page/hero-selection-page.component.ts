@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
+
 import { EntityModule } from 'src/app/modules/entity/entity.module';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 

@@ -1,5 +1,6 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { Entity } from 'src/app/models/entity.models';
+
+import { Entity } from '../../models/entity.models';
 
 export const DataActions = createActionGroup({
   source: 'Data',

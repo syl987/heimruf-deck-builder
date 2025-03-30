@@ -1,4 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+
 import { notUndefined } from 'src/app/functions/typeguard.functions';
 import { toCardCounts } from 'src/app/helpers/deck.helpers';
 import { isCard, isHero, mapEntity } from 'src/app/helpers/entity.helpers';

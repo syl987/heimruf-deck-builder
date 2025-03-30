@@ -1,5 +1,6 @@
 import { coerceNumberProperty, NumberInput } from '@angular/cdk/coercion';
 import { ChangeDetectionStrategy, Component, HostBinding, input } from '@angular/core';
+
 import { EntityContentType } from 'src/app/models/entity.models';
 
 @Component({

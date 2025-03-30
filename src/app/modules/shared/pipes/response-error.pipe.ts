@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { ResponseError, ResponseErrorType } from '../../../models/error.models';
+import { ResponseError, ResponseErrorType } from 'src/app/models/error.models';
 
 const UNKNOWN_ERROR_MESSAGE = `An unknown error occurred.`;
 
