@@ -1,25 +1,21 @@
 import { registerLocaleData } from '@angular/common';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import deLocale from '@angular/common/locales/de';
-import { ApplicationRef, DEFAULT_CURRENCY_CODE, DoBootstrap, isDevMode, LOCALE_ID, NgModule } from '@angular/core';
+import { ApplicationConfig, DEFAULT_CURRENCY_CODE, importProvidersFrom, isDevMode, LOCALE_ID } from '@angular/core';
 import { MAT_BUTTON_TOGGLE_DEFAULT_OPTIONS } from '@angular/material/button-toggle';
-import { MatCardModule } from '@angular/material/card';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatTabsModule } from '@angular/material/tabs';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideRouterStore } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import * as dataConfig from 'src/data.config.json';
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { routes } from './app.routes';
 import { DirtyAndTouchedMatcher } from './matchers/dirty-and-touched.matcher';
 import { APP_DATA_CONFIG, APP_OPTIONS, AppOptions } from './models/app.models';
-import { SharedModule } from './modules/shared/shared.module';
 import { buttonToggleConfig } from './options/button-toggle.config';
 import { snackBarConfig } from './options/snack-bar.config';
 import { config, effects, reducers, routerStoreConfig } from './store/app.store';
@@ -50,16 +46,19 @@ const appOptions: AppOptions = {
   copyrightYear: '2024',
 };
 
-@NgModule({
-  imports: [MatCardModule, MatSnackBarModule, MatTabsModule, SharedModule, AppRoutingModule],
-  declarations: [AppComponent, WelcomePageComponent],
+export const appConfig: ApplicationConfig = {
   providers: [
+    provideRouter(routes, withPreloading(PreloadAllModules)),
     provideHttpClient(withInterceptorsFromDi()),
     provideAnimations(),
     provideStore(reducers, config),
     provideEffects(effects),
     provideRouterStore(routerStoreConfig),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode(), connectInZone: true }),
+
+    importProvidersFrom(
+      MatSnackBarModule, // used centrally
+    ),
 
     { provide: LOCALE_ID, useValue: 'de' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
@@ -74,9 +73,4 @@ const appOptions: AppOptions = {
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: snackBarConfig },
     { provide: MAT_BUTTON_TOGGLE_DEFAULT_OPTIONS, useValue: buttonToggleConfig },
   ],
-})
-export class AppModule implements DoBootstrap {
-  ngDoBootstrap(appRef: ApplicationRef): void {
-    appRef.bootstrap(AppComponent);
-  }
-}
+};

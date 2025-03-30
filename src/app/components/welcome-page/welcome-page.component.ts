@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, VERSION } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'hs-welcome-page',
-  standalone: false,
+  imports: [MatCardModule],
   templateUrl: './welcome-page.component.html',
   styleUrl: './welcome-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

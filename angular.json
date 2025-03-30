@@ -82,7 +82,6 @@
   "schematics": {
     "@schematics/angular:component": {
       "skipTests": true,
-      "standalone": false,
       "changeDetection": "OnPush",
       "inlineStyle": true,
       "style": "scss"

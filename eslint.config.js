@@ -162,7 +162,7 @@ module.exports = tseslint.config(
       '@angular-eslint/no-queries-metadata-property': 'off', // recommended override: necessary for extending a component
       '@angular-eslint/prefer-on-push-component-change-detection': 'warn',
       '@angular-eslint/prefer-output-readonly': 'warn',
-      '@angular-eslint/prefer-standalone': 'off', // currently unused
+      '@angular-eslint/prefer-standalone': 'warn',
       '@angular-eslint/relative-url-prefix': 'warn',
       '@angular-eslint/require-localize-metadata': 'off', // currently unused
       '@angular-eslint/runtime-localize': 'off', // currently unused
