@@ -7,11 +7,11 @@ import { MatCardModule } from '@angular/material/card';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideEffects } from '@ngrx/effects';
+import { provideRouterStore } from '@ngrx/router-store';
+import { provideStore } from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 import * as dataConfig from 'src/data.config.json';
 
 import { AppComponent } from './app.component';
@@ -51,26 +51,23 @@ const appOptions: AppOptions = {
 };
 
 @NgModule({
-  imports: [
-    BrowserAnimationsModule,
-    StoreModule.forRoot(reducers, config),
-    EffectsModule.forRoot(effects),
-    StoreRouterConnectingModule.forRoot(routerStoreConfig),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode(), connectInZone: true }),
-    MatCardModule,
-    MatSnackBarModule,
-    MatTabsModule,
-    SharedModule,
-    AppRoutingModule,
-  ],
+  imports: [MatCardModule, MatSnackBarModule, MatTabsModule, SharedModule, AppRoutingModule],
   declarations: [AppComponent, WelcomePageComponent],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
+    provideAnimations(),
+    provideStore(reducers, config),
+    provideEffects(effects),
+    provideRouterStore(routerStoreConfig),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode(), connectInZone: true }),
+
     { provide: LOCALE_ID, useValue: 'de' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
     { provide: APP_OPTIONS, useValue: appOptions },
     { provide: APP_DATA_CONFIG, useValue: dataConfig },
+
     { provide: ErrorStateMatcher, useClass: DirtyAndTouchedMatcher },
+
     /* { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: dialogConfig }, */
     /* { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: formFieldConfig }, */
     /* { provide: MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS, useValue: progressSpinnerConfig }, */
