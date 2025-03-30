@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'welcome' },
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'deck-builder', loadChildren: () => import('src/app/modules/deck-builder/deck-builder.module').then(m => m.DeckBuilderModule) },
-  { path: 'library', loadChildren: () => import('src/app/modules/library/library.module').then(m => m.LibraryModule) },
+  { path: 'library', loadChildren: () => import('src/app/modules/library/library.routes').then(m => m.routes) },
   { path: '**', redirectTo: 'welcome' },
 ];
 
