@@ -28,7 +28,6 @@ registerLocaleData(deLocale, 'de');
 // TODO create imprint and legal notice pages
 // stay at material 2, bootstrap, current ngrx syntax
 // TODO adjust card and footer: maintenance mode
-// TODO kick _ngcontent from any html files
 // TODO resolve any commented code in ts or html
 
 // TODO fix fonts loading speed and transition
