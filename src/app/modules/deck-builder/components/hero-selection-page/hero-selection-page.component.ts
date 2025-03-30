@@ -1,3 +1,4 @@
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -10,14 +11,14 @@ import { selectSelectedHeroId, selectSelectionHeroes } from '../../store/deck-bu
 
 @Component({
   selector: 'hs-hero-selection-page',
-  imports: [RouterModule, EntityModule, SharedModule],
+  imports: [RouterModule, EntityModule, SharedModule, AsyncPipe],
   templateUrl: './hero-selection-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroSelectionPageComponent {
-  readonly heroes = this.store.selectSignal(selectSelectionHeroes);
+  readonly heroes$ = this.store.select(selectSelectionHeroes);
 
-  readonly selectedHeroId = this.store.selectSignal(selectSelectedHeroId);
+  readonly selectedHeroId$ = this.store.select(selectSelectedHeroId);
 
   constructor(
     private readonly store: Store,

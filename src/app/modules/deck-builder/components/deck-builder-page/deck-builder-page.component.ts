@@ -1,4 +1,4 @@
-import { TitleCasePipe } from '@angular/common';
+import { AsyncPipe, TitleCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -22,19 +22,19 @@ import {
 
 @Component({
   selector: 'hs-deck-builder-page',
-  imports: [RouterModule, MatButtonModule, MatButtonToggleModule, EntityModule, SharedModule, TitleCasePipe],
+  imports: [RouterModule, MatButtonModule, MatButtonToggleModule, EntityModule, SharedModule, TitleCasePipe, AsyncPipe],
   templateUrl: './deck-builder-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeckBuilderPageComponent {
-  readonly cards = this.store.selectSignal(selectSelectionCards);
-  readonly hero = this.store.selectSignal(selectSelectedHero);
+  readonly cards$ = this.store.select(selectSelectionCards);
+  readonly hero$ = this.store.select(selectSelectedHero);
 
-  readonly filter = this.store.selectSignal(selectSelectionFilter);
+  readonly filter$ = this.store.select(selectSelectionFilter);
 
-  readonly deckCardCounts = this.store.selectSignal(selectSelectedDeckCardCounts);
-  readonly deckCardsTotal = this.store.selectSignal(selectSelectedDeckCardsTotal);
-  readonly deckEmpty = this.store.selectSignal(selectSelectedDeckEmpty);
+  readonly deckCardCounts$ = this.store.select(selectSelectedDeckCardCounts);
+  readonly deckCardsTotal$ = this.store.select(selectSelectedDeckCardsTotal);
+  readonly deckEmpty$ = this.store.select(selectSelectedDeckEmpty);
 
   readonly CardType = CardType;
 

@@ -2,13 +2,13 @@ import { ESCAPE } from '@angular/cdk/keycodes';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { FullscreenOverlayContainer, Overlay, OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { LowerCasePipe, TitleCasePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, Inject, signal, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
-import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
+import { AsyncPipe, LowerCasePipe, TitleCasePipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, DestroyRef, Inject, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { filter, first, map, merge } from 'rxjs';
+import { BehaviorSubject, filter, first, map, merge, startWith } from 'rxjs';
 
 import { APP_DATA_CONFIG, AppDataConfig } from 'src/app/models/app.models';
 import { Card, CardType } from 'src/app/models/entity.models';
@@ -34,14 +34,14 @@ function getCardOverlayScale(breakpoint: string): number {
 
 @Component({
   selector: 'hs-card-library-page',
-  imports: [RouterModule, OverlayModule, MatTabsModule, EntityModule, SharedModule, TitleCasePipe, LowerCasePipe],
+  imports: [RouterModule, OverlayModule, MatTabsModule, EntityModule, SharedModule, TitleCasePipe, LowerCasePipe, AsyncPipe],
   templateUrl: './card-library-page.component.html',
   styleUrl: './card-library-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{ provide: OverlayContainer, useClass: FullscreenOverlayContainer }],
 })
 export class CardLibraryPageComponent {
-  readonly cards = this.store.selectSignal(selectLibraryCards);
+  readonly cards$ = this.store.select(selectLibraryCards);
 
   private readonly breakpoints$ = merge(
     this.observer.observe([Breakpoints.XSmall]),
@@ -54,8 +54,8 @@ export class CardLibraryPageComponent {
     map(({ breakpoints }) => Object.keys(breakpoints)[0]), // select just one breakpoint that is relevant
   );
 
-  readonly selectedCardScale = toSignal(this.breakpoints$.pipe(map(getCardOverlayScale)), { initialValue: 1 });
-  readonly selectedCard = signal<Card | undefined>(undefined);
+  readonly selectedCardScale$ = this.breakpoints$.pipe(map(getCardOverlayScale), startWith(1));
+  readonly selectedCard$ = new BehaviorSubject<Card | undefined>(undefined);
 
   readonly CardType = CardType;
 
