@@ -1,5 +1,5 @@
 import { TitleCasePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { Hero } from 'src/app/models/entity.models';
 
@@ -20,10 +20,10 @@ function firstWord(text?: string | null): string | null {
   host: { class: 'hs-entity hs-hero' },
 })
 export class HeroComponent {
-  readonly data = input.required<Hero>();
+  @Input({ required: true }) data!: Hero;
 
   get image256xUrl(): string {
-    return `assets/img/hearthstonejson/v1/256x/${this.data().id}.jpg`;
+    return `assets/img/hearthstonejson/v1/256x/${this.data.id}.jpg`;
   }
 
   readonly templateUrl = heroTemplate;

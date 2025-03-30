@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { getStyleUrl } from 'src/app/helpers/style.helpers';
 import { CardClass, CardRarity, Spell } from 'src/app/models/entity.models';
@@ -35,18 +35,18 @@ const crystals: Partial<Record<CardRarity, string>> = {
   host: { class: 'hs-entity hs-spell' },
 })
 export class SpellComponent {
-  readonly data = input.required<Spell>();
+  @Input({ required: true }) data!: Spell;
 
   get image256xUrl(): string {
-    return `assets/img/hearthstonejson/v1/256x/${this.data().id}.jpg`;
+    return `assets/img/hearthstonejson/v1/256x/${this.data.id}.jpg`;
   }
 
   get templateUrl(): string {
-    return templates[this.data().cardClass || CardClass.NEUTRAL] ?? defaultSpellTemplate;
+    return templates[this.data.cardClass || CardClass.NEUTRAL] ?? defaultSpellTemplate;
   }
 
   get rarityCrystalStyleUrl(): string | null {
-    const { rarity } = this.data();
+    const { rarity } = this.data;
     return rarity ? getStyleUrl(crystals[rarity]) : null;
   }
 }

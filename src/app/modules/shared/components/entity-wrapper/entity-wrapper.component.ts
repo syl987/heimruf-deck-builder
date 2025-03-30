@@ -1,5 +1,5 @@
 import { coerceNumberProperty, NumberInput } from '@angular/cdk/coercion';
-import { ChangeDetectionStrategy, Component, HostBinding, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
 import { EntityContentType } from 'src/app/models/entity.models';
 
@@ -10,18 +10,24 @@ import { EntityContentType } from 'src/app/models/entity.models';
   host: { style: 'display: block' },
 })
 export class EntityWrapperComponent {
-  readonly contentType = input.required<EntityContentType>();
+  @Input({ required: true }) contentType!: EntityContentType;
 
-  readonly scale = input<number, NumberInput>(0.8, { transform: coerceNumberProperty });
+  @Input() set scale(value: NumberInput) {
+    this._scale = coerceNumberProperty(value);
+  }
+  get scale(): number {
+    return this._scale;
+  }
+  private _scale = 0.8;
 
   @HostBinding('style.transform') get transform(): string {
-    return `scale(${this.scale()})`;
+    return `scale(${this.scale})`;
   }
 
   @HostBinding('style.margin') get margin(): string {
-    const fraction = (1 - this.scale()) / 2;
+    const fraction = (1 - this.scale) / 2;
 
-    switch (this.contentType()) {
+    switch (this.contentType) {
       case 'card':
         return `${-fraction * 386}px ${-fraction * 286}px`;
       case 'hero':

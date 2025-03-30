@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { Card, CardRarity } from 'src/app/models/entity.models';
 
@@ -12,11 +12,11 @@ const cardTemplate = 'assets/img/template/selection-card-template.png';
   host: { class: 'hs-entity hs-card' },
 })
 export class CardComponent {
-  readonly data = input.required<Card>();
-  readonly count = input.required<number>();
+  @Input({ required: true }) data!: Card;
+  @Input({ required: true }) count!: number;
 
   get imageTileUrl(): string {
-    return `assets/img/hearthstonejson/v1/tile/${this.data().id}.jpg`;
+    return `assets/img/hearthstonejson/v1/tile/${this.data.id}.jpg`;
   }
 
   readonly templateUrl = cardTemplate;

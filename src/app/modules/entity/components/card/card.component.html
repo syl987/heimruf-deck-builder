@@ -2,11 +2,11 @@
 
 <img [src]="imageTileUrl" alt="Image" class="hs-card-image" />
 
-<div class="hs-card-cost-value">{{ data().cost }}</div>
+<div class="hs-card-cost-value">{{ data.cost }}</div>
 
-<div class="hs-card-name-value">{{ data().name }}</div>
+<div class="hs-card-name-value">{{ data.name }}</div>
 
-@if (data().rarity === CardRarity.LEGENDARY) {
+@if (data.rarity === CardRarity.LEGENDARY) {
   <div class="hs-card-rarity-icon">
     <svg class="hs-card-rarity-star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51 48">
       <title>Unique</title>
@@ -14,5 +14,5 @@
     </svg>
   </div>
 } @else {
-  <div class="hs-card-count-value">{{ count() }}</div>
+  <div class="hs-card-count-value">{{ count }}</div>
 }

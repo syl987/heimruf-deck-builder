@@ -1,6 +1,6 @@
 import { coerceNumberProperty, NumberInput } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
-import { ChangeDetectionStrategy, Component, ElementRef, Inject, input, NgZone, OnInit, Optional, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Inject, Input, NgZone, OnInit, Optional, ViewEncapsulation } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 
@@ -37,9 +37,15 @@ function getEntityButtonRippleClass(contentType: EntityContentType): string {
   },
 })
 export class EntityButtonComponent extends MatButton implements OnInit {
-  readonly contentType = input.required<EntityContentType>();
+  @Input({ required: true }) contentType!: EntityContentType;
 
-  readonly scale = input<number, NumberInput>(0.8, { transform: coerceNumberProperty });
+  @Input() set scale(value: NumberInput) {
+    this._scale = coerceNumberProperty(value);
+  }
+  get scale(): number {
+    return this._scale;
+  }
+  private _scale = 0.8;
 
   constructor(el: ElementRef, platform: Platform, zone: NgZone, @Optional() @Inject(ANIMATION_MODULE_TYPE) animationMode: string) {
     super(el, platform, zone, animationMode);
@@ -47,7 +53,7 @@ export class EntityButtonComponent extends MatButton implements OnInit {
 
   ngOnInit(): void {
     this._rippleLoader?.configureRipple(this._elementRef.nativeElement, {
-      className: getEntityButtonRippleClass(this.contentType()),
+      className: getEntityButtonRippleClass(this.contentType),
     });
   }
 }

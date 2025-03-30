@@ -2,13 +2,13 @@
 
 <img [src]="image256xUrl" alt="Image" class="hs-spell-image" />
 
-<div class="hs-spell-cost-value">{{ data().cost }}</div>
+<div class="hs-spell-cost-value">{{ data.cost }}</div>
 
 <div class="hs-spell-name-value">
   <svg viewBox="0 0 226 50">
     <path id="hs-spell-name-curve" d="M0,50 C26,14 200,12 226,50" style="fill: transparent" />
     <text width="226" fill="white">
-      <textPath startOffset="50%" xlink:href="#hs-spell-name-curve" style="text-anchor: middle">{{ data().name }}</textPath>
+      <textPath startOffset="50%" xlink:href="#hs-spell-name-curve" style="text-anchor: middle">{{ data.name }}</textPath>
     </text>
   </svg>
 </div>
@@ -17,5 +17,5 @@
   <div class="hs-spell-rarity-crystal" [style.background-image]="rarityCrystalStyleUrl"></div>
 }
 <div class="hs-spell-text-wrapper">
-  <div class="hs-spell-text-value" [innerHTML]="data().text | safeHtml"></div>
+  <div class="hs-spell-text-value" [innerHTML]="data.text | safeHtml"></div>
 </div>
