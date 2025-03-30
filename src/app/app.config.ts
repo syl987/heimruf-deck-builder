@@ -36,7 +36,7 @@ registerLocaleData(deLocale, 'de');
 // TODO card set filter + prefilter
 // TODO improve performance on mobile
 
-// TODO precreate card components
+// TODO precreate card components - check commit: e631561174f949a037ebe69b2b635e64444154bf
 
 // TODO normalize store files and logic
 // TODO migrate image data as image files
