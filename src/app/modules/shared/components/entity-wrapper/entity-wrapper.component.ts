@@ -4,7 +4,6 @@ import { EntityContentType } from 'src/app/models/entity.models';
 
 @Component({
   selector: 'hs-entity-wrapper',
-  standalone: false,
   template: `<ng-content />`,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { style: 'display: block' },

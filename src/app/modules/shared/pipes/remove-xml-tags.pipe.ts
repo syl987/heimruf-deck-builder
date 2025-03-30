@@ -4,7 +4,6 @@ import { XML_TAGS_REGEX } from '../../../models/regex.models';
 
 @Pipe({
   name: 'removeXmlTags',
-  standalone: false,
 })
 export class RemoveXmlTagsPipe implements PipeTransform {
   transform(value: string | null | undefined): string | null {

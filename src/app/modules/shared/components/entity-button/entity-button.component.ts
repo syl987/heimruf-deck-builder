@@ -4,6 +4,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, Inject, input, NgZone, 
 import { MatButton } from '@angular/material/button';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { EntityContentType } from 'src/app/models/entity.models';
+import { EntityWrapperComponent } from '../entity-wrapper/entity-wrapper.component';
 
 function getEntityButtonRippleClass(contentType: EntityContentType): string {
   switch (contentType) {
@@ -20,18 +21,18 @@ function getEntityButtonRippleClass(contentType: EntityContentType): string {
 
 @Component({
   selector: 'button[hs-entity-button], button[hsEntityButton], a[hs-entity-button], a[hsEntityButton]',
+  imports: [EntityWrapperComponent],
+  templateUrl: './entity-button.component.html',
+  styleUrl: './entity-button.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   exportAs: 'hsEntityButton',
-  standalone: false,
   inputs: ['disabled', 'disableRipple'],
   host: {
     '[attr.disabled]': 'disabled || null',
     '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
     '[class.hs-entity-button]': 'true',
   },
-  templateUrl: './entity-button.component.html',
-  styleUrl: './entity-button.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
 })
 export class EntityButtonComponent extends MatButton implements OnInit {
   readonly contentType = input.required<EntityContentType>();
