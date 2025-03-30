@@ -7,6 +7,7 @@ import { selectSelectedHeroId, selectSelectionHeroes } from '../../store/deck-bu
 
 @Component({
   selector: 'hs-hero-selection-page',
+  standalone: false,
   templateUrl: './hero-selection-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

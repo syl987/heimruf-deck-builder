@@ -3,6 +3,7 @@ import { AbstractControl } from '@angular/forms';
 
 @Pipe({
   name: 'validationError',
+  standalone: false,
   pure: false,
 })
 export class ValidationErrorPipe implements PipeTransform {

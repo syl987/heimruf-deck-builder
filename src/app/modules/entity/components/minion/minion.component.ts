@@ -7,7 +7,7 @@ const dragonDecoration = 'assets/img/template/minion/dragon-minion-decoration.pn
 const defaultMinionTemplate = 'assets/img/template/minion/neutral-minion-template.png';
 const boardMinionTemplate = 'assets/img/template/minion/board-minion-template.png';
 
-const templates: ReadonlyMap<CardClass, string> = new Map([
+const templates = new Map<CardClass, string>([
   [CardClass.DRUID, 'assets/img/template/minion/druid-minion-template.png'],
   [CardClass.HUNTER, 'assets/img/template/minion/hunter-minion-template.png'],
   [CardClass.MAGE, 'assets/img/template/minion/mage-minion-template.png'],
@@ -20,7 +20,7 @@ const templates: ReadonlyMap<CardClass, string> = new Map([
   [CardClass.NEUTRAL, 'assets/img/template/minion/neutral-minion-template.png'],
 ]);
 
-const crystals: ReadonlyMap<CardRarity, string> = new Map([
+const crystals = new Map<CardRarity, string>([
   [CardRarity.COMMON, 'assets/img/template/minion/common-minion-crystal.png'],
   [CardRarity.RARE, 'assets/img/template/minion/rare-minion-crystal.png'],
   [CardRarity.EPIC, 'assets/img/template/minion/epic-minion-crystal.png'],
@@ -29,8 +29,9 @@ const crystals: ReadonlyMap<CardRarity, string> = new Map([
 
 @Component({
   selector: 'hs-minion',
+  standalone: false,
   templateUrl: './minion.component.html',
-  styleUrls: ['./minion.component.scss'],
+  styleUrl: './minion.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'hs-entity hs-minion' },
 })
@@ -46,7 +47,7 @@ export class MinionComponent {
   }
 
   get rarityCrystalStyleUrl(): string | null {
-    const rarity = this.data().rarity;
+    const { rarity } = this.data();
     return rarity ? getStyleUrl(crystals.get(rarity)) : null;
   }
 

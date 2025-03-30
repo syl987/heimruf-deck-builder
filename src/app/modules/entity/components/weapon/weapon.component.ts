@@ -5,7 +5,7 @@ import { CardClass, CardRarity, Weapon } from 'src/app/models/entity.models';
 const defaultWeaponTemplate = 'assets/img/template/weapon/neutral-weapon-template.png';
 const boardWeaponTemplate = 'assets/img/template/weapon/board-weapon-template.png';
 
-const templates: ReadonlyMap<string, string> = new Map([
+const templates = new Map<CardClass, string>([
   [CardClass.DRUID, 'assets/img/template/weapon/druid-weapon-template.png'],
   [CardClass.HUNTER, 'assets/img/template/weapon/hunter-weapon-template.png'],
   [CardClass.MAGE, 'assets/img/template/weapon/mage-weapon-template.png'],
@@ -18,7 +18,7 @@ const templates: ReadonlyMap<string, string> = new Map([
   [CardClass.NEUTRAL, 'assets/img/template/weapon/neutral-weapon-template.png'],
 ]);
 
-const crystals: ReadonlyMap<string, string> = new Map([
+const crystals = new Map<CardRarity, string>([
   [CardRarity.COMMON, 'assets/img/template/weapon/common-weapon-crystal.png'],
   [CardRarity.RARE, 'assets/img/template/weapon/rare-weapon-crystal.png'],
   [CardRarity.EPIC, 'assets/img/template/weapon/epic-weapon-crystal.png'],
@@ -27,8 +27,9 @@ const crystals: ReadonlyMap<string, string> = new Map([
 
 @Component({
   selector: 'hs-weapon',
+  standalone: false,
   templateUrl: './weapon.component.html',
-  styleUrls: ['./weapon.component.scss'],
+  styleUrl: './weapon.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'hs-entity hs-weapon' },
 })
@@ -44,7 +45,7 @@ export class WeaponComponent {
   }
 
   get rarityCrystalStyleUrl(): string | null {
-    const rarity = this.data().rarity;
+    const { rarity } = this.data();
     return rarity ? getStyleUrl(crystals.get(rarity)) : null;
   }
 }

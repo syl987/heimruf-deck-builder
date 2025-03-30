@@ -15,6 +15,7 @@ import {
 
 @Component({
   selector: 'hs-deck-builder-page',
+  standalone: false,
   templateUrl: './deck-builder-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

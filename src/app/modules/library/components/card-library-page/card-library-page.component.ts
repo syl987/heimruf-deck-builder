@@ -28,8 +28,9 @@ function getCardOverlayScale(breakpoint: string): number {
 
 @Component({
   selector: 'hs-card-library-page',
+  standalone: false,
   templateUrl: './card-library-page.component.html',
-  styleUrls: ['./card-library-page.component.scss'],
+  styleUrl: './card-library-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardLibraryPageComponent {
@@ -51,7 +52,7 @@ export class CardLibraryPageComponent {
 
   readonly CardType = CardType;
 
-  @ViewChild('cardOverlay') readonly cardOverlayTemplateRef?: TemplateRef<any>;
+  @ViewChild('cardOverlay') readonly cardOverlayTemplateRef?: TemplateRef<unknown>;
 
   constructor(
     @Inject(APP_DATA_CONFIG) readonly config: AppDataConfig,

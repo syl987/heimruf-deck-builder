@@ -21,6 +21,7 @@ function getEntityButtonRippleClass(contentType: EntityContentType): string {
 @Component({
   selector: 'button[hs-entity-button], button[hsEntityButton], a[hs-entity-button], a[hsEntityButton]',
   exportAs: 'hsEntityButton',
+  standalone: false,
   inputs: ['disabled', 'disableRipple'],
   host: {
     '[attr.disabled]': 'disabled || null',
@@ -28,7 +29,7 @@ function getEntityButtonRippleClass(contentType: EntityContentType): string {
     '[class.hs-entity-button]': 'true',
   },
   templateUrl: './entity-button.component.html',
-  styleUrls: ['./entity-button.component.scss'],
+  styleUrl: './entity-button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })

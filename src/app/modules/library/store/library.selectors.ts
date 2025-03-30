@@ -6,7 +6,7 @@ import { selectPrefilterEntities } from 'src/app/store/prefilter/prefilter.selec
 import { selectRouterParam } from 'src/app/store/router/router.selectors';
 
 export const selectLibraryCardIds = createSelector(selectPrefilterEntities, selectRouterParam('cardClass'), (entities, param) => {
-  return param ? entities[param.toUpperCase()]?.cardIds ?? [] : [];
+  return param ? (entities[param.toUpperCase()]?.cardIds ?? []) : [];
 });
 
 export const selectLibraryCards = createSelector(selectDataEntityEntities, selectLibraryCardIds, (entities, ids) => {

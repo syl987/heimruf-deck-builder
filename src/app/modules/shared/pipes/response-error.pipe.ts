@@ -6,6 +6,7 @@ const UNKNOWN_ERROR_MESSAGE = `An unknown error occurred.`;
 
 @Pipe({
   name: 'responseError',
+  standalone: false,
 })
 export class ResponseErrorPipe implements PipeTransform {
   transform(value: ResponseError | null | undefined): string | null {

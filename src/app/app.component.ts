@@ -7,8 +7,9 @@ import { APP_OPTIONS, AppOptions } from './models/app.models';
 
 @Component({
   selector: 'hs-root',
+  standalone: false,
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'd-flex flex-column min-vh-100' },
 })

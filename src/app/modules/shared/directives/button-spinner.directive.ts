@@ -1,14 +1,15 @@
-import { ComponentFactory, ComponentFactoryResolver, ComponentRef, Directive, ElementRef, Input, OnInit, Renderer2, ViewContainerRef } from '@angular/core';
+import { ComponentFactoryResolver, Directive, ElementRef, Input, OnInit, Renderer2, ViewContainerRef } from '@angular/core';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Directive({
   selector:
     '[mat-button][spinning],[mat-raised-button][spinning],[mat-stroked-button][spinning],[mat-flat-button][spinning],[mat-icon-button][spinning],[mat-fab][spinning],[mat-mini-fab][spinning]',
+  standalone: false,
   host: { class: 'ib-button-spinner' },
 })
 export class ButtonSpinnerDirective implements OnInit {
-  private readonly spinnerFactory: ComponentFactory<MatProgressSpinner> = this._componentFactoryResolver.resolveComponentFactory(MatProgressSpinner);
-  private readonly spinnerRef: ComponentRef<MatProgressSpinner> = this._viewContainerRef.createComponent(this.spinnerFactory);
+  private readonly spinnerFactory = this._componentFactoryResolver.resolveComponentFactory(MatProgressSpinner);
+  private readonly spinnerRef = this._viewContainerRef.createComponent(this.spinnerFactory);
 
   @Input() set spinning(value: boolean) {
     if (value) {

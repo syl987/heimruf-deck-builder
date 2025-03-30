@@ -11,8 +11,9 @@ function firstWord(text?: string | null): string | null {
 
 @Component({
   selector: 'hs-hero',
+  standalone: false,
   templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss'],
+  styleUrl: './hero.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'hs-entity hs-hero' },
 })

@@ -5,8 +5,9 @@ const cardTemplate = 'assets/img/template/selection-card-template.png';
 
 @Component({
   selector: 'hs-card',
+  standalone: false,
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+  styleUrl: './card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'hs-entity hs-card' },
 })
