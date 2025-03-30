@@ -9,5 +9,5 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.codeActionsOnSave.mode": "problems",
   "extensions.ignoreRecommendations": false,
-  "cSpell.words": ["hearthstonejson", "heimruf", "Photoshop", "prefilter"]
+  "cSpell.words": ["hearthstonejson", "heimruf", "Photoshop", "prefilter", "prefiltered"]
 }
