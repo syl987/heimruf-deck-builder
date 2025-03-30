@@ -11,6 +11,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideRouterStore } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+
 import * as dataConfig from 'src/data.config.json';
 
 import { routes } from './app.routes';
@@ -21,6 +22,13 @@ import { snackBarConfig } from './options/snack-bar.config';
 import { config, effects, reducers, routerStoreConfig } from './store/app.store';
 
 registerLocaleData(deLocale, 'de');
+
+// TODO move todos into a TODO.md file
+// TODO resolve remaining todos in all files
+// TODO create imprint and legal notice pages
+// stay at material 2, bootstrap, current ngrx syntax
+// TODO adjust card and footer: maintenance mode
+// TODO kick _ngcontent from any html files
 
 // TODO fix fonts loading speed and transition
 // TODO fix card image miner
