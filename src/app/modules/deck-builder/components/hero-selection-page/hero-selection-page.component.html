@@ -8,7 +8,7 @@
   @let selectedHeroId = selectedHeroId$ | async;
 
   @for (hero of heroes$ | async; track hero.id) {
-    <a hs-entity-button routerLink="/deck-builder/{{ hero.cardClass?.toLowerCase() }}" contentType="hero" scale="0.9" [class.active]="selectedHeroId === hero.id">
+    <a hs-entity-button [routerLink]="['/deck-builder', hero.cardClass?.toLowerCase()]" contentType="hero" scale="0.9" [class.active]="selectedHeroId === hero.id">
       <hs-hero [data]="hero" />
     </a>
   }

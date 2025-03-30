@@ -5,7 +5,8 @@ import { CardClass, CardRarity, Weapon } from 'src/app/models/entity.models';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 
 const defaultWeaponTemplate = 'assets/img/template/weapon/neutral-weapon-template.png';
-const boardWeaponTemplate = 'assets/img/template/weapon/board-weapon-template.png';
+
+// const boardWeaponTemplate = 'assets/img/template/weapon/board-weapon-template.png';
 
 const templates: Record<CardClass, string> = {
   [CardClass.DRUID]: 'assets/img/template/weapon/druid-weapon-template.png',

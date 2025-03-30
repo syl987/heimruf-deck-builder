@@ -8,7 +8,8 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
 const raceDecoration = 'assets/img/template/minion/race-minion-decoration.png';
 const dragonDecoration = 'assets/img/template/minion/dragon-minion-decoration.png';
 const defaultMinionTemplate = 'assets/img/template/minion/neutral-minion-template.png';
-const boardMinionTemplate = 'assets/img/template/minion/board-minion-template.png';
+
+// const boardMinionTemplate = 'assets/img/template/minion/board-minion-template.png';
 
 const templates: Record<CardClass, string> = {
   [CardClass.DRUID]: 'assets/img/template/minion/druid-minion-template.png',

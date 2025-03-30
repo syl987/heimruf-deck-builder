@@ -21,7 +21,7 @@ interface EntityBase {
   targetingArrowText?: string;
 }
 
-export type Entity = Hero | Card; // TODO add Enchantment
+export type Entity = Hero | Card;
 
 export type Card = Minion | Spell | Weapon;
 

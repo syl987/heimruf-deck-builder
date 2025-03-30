@@ -5,7 +5,7 @@ import { Hero } from 'src/app/models/entity.models';
 
 const heroTemplate = 'assets/img/template/hero/standard-hero-template.png';
 
-const boardHeroTemplate = 'assets/img/template/hero/board-hero-template.png';
+// const boardHeroTemplate = 'assets/img/template/hero/board-hero-template.png';
 
 function firstWord(text?: string | null): string | null {
   return text?.split(' ')[0] ?? null;

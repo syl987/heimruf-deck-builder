@@ -2,7 +2,7 @@
   <div class="text-center mt-2xs mb-s">
     <nav mat-tab-nav-bar [tabPanel]="tabPanel" mat-align-tabs="center" [mat-stretch-tabs]="false">
       @for (cardClass of config.cardClasses; track cardClass) {
-        <a mat-tab-link routerLink="/library/cards/{{ cardClass | lowercase }}" routerLinkActive [active]="m0.isActive" #m0="routerLinkActive">{{ cardClass | titlecase }}</a>
+        <a mat-tab-link [routerLink]="['/library/cards', cardClass | lowercase]" routerLinkActive [active]="m0.isActive" #m0="routerLinkActive">{{ cardClass | titlecase }}</a>
       }
     </nav>
   </div>

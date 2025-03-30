@@ -7,7 +7,7 @@ export function mapEntity<T>(id: string | undefined, entities: Dictionary<T>): T
   return id ? entities[id] : undefined;
 }
 
-export function emptyDeck<T>(heroId: string): Deck {
+export function emptyDeck(heroId: string): Deck {
   return { heroId, cardIdCounts: [] };
 }
 
