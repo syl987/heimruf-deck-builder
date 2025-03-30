@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { MetaReducer } from '@ngrx/store';
 
 export const consoleLogMetaReducer: MetaReducer = reducer => (state, action) => {

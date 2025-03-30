@@ -83,22 +83,7 @@ module.exports = tseslint.config(
       'no-object-constructor': 'warn',
       'no-octal-escape': 'warn',
       'no-proto': 'warn',
-      'no-restricted-imports': [
-        'warn',
-        {
-          paths: [
-            {
-              name: 'rxjs/operators',
-              message: "Please import from 'rxjs' instead.",
-            },
-            {
-              name: '@angular/forms',
-              importNames: ['FormsModule', 'NgForm', 'NgModel', 'NgModelGroup'],
-              message: 'Please use reactive forms instead.',
-            },
-          ],
-        },
-      ],
+      'no-restricted-imports': ['warn', { paths: [{ name: 'rxjs/operators', message: "Please import from 'rxjs' instead." }] }],
       'no-return-assign': 'warn',
       'no-script-url': 'warn',
       'no-undef-init': 'warn',
