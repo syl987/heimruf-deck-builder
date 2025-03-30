@@ -5,7 +5,6 @@ const cardTemplate = 'assets/img/template/selection-card-template.png';
 
 @Component({
   selector: 'hs-card',
-  standalone: false,
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

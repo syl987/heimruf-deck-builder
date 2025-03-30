@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { getStyleUrl } from 'src/app/helpers/style.helpers';
 import { CardClass, CardRarity, Weapon } from 'src/app/models/entity.models';
+import { SharedModule } from 'src/app/modules/shared/shared.module';
 
 const defaultWeaponTemplate = 'assets/img/template/weapon/neutral-weapon-template.png';
 const boardWeaponTemplate = 'assets/img/template/weapon/board-weapon-template.png';
@@ -27,7 +28,7 @@ const crystals = new Map<CardRarity, string>([
 
 @Component({
   selector: 'hs-weapon',
-  standalone: false,
+  imports: [SharedModule],
   templateUrl: './weapon.component.html',
   styleUrl: './weapon.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

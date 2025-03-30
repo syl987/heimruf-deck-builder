@@ -1,3 +1,4 @@
+import { TitleCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Hero } from 'src/app/models/entity.models';
 
@@ -11,7 +12,7 @@ function firstWord(text?: string | null): string | null {
 
 @Component({
   selector: 'hs-hero',
-  standalone: false,
+  imports: [TitleCasePipe],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

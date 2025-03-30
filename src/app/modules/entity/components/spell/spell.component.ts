@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { getStyleUrl } from 'src/app/helpers/style.helpers';
 import { CardClass, CardRarity, Spell } from 'src/app/models/entity.models';
+import { SharedModule } from 'src/app/modules/shared/shared.module';
 
 const defaultSpellTemplate = 'assets/img/template/spell/neutral-spell-template.png';
 
@@ -26,7 +27,7 @@ const crystals = new Map<CardRarity, string>([
 
 @Component({
   selector: 'hs-spell',
-  standalone: false,
+  imports: [SharedModule],
   templateUrl: './spell.component.html',
   styleUrl: './spell.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

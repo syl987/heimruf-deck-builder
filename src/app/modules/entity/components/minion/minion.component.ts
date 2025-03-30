@@ -1,6 +1,8 @@
+import { TitleCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { getStyleUrl } from 'src/app/helpers/style.helpers';
 import { CardClass, CardRarity, Minion } from 'src/app/models/entity.models';
+import { SharedModule } from 'src/app/modules/shared/shared.module';
 
 const raceDecoration = 'assets/img/template/minion/race-minion-decoration.png';
 const dragonDecoration = 'assets/img/template/minion/dragon-minion-decoration.png';
@@ -29,7 +31,7 @@ const crystals = new Map<CardRarity, string>([
 
 @Component({
   selector: 'hs-minion',
-  standalone: false,
+  imports: [SharedModule, TitleCasePipe],
   templateUrl: './minion.component.html',
   styleUrl: './minion.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

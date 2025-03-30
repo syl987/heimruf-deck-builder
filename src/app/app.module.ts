@@ -19,7 +19,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { DirtyAndTouchedMatcher } from './matchers/dirty-and-touched.matcher';
 import { APP_DATA_CONFIG, APP_OPTIONS, AppOptions } from './models/app.models';
-import { EntityModule } from './modules/entity/entity.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { buttonToggleConfig } from './options/button-toggle.config';
 import { snackBarConfig } from './options/snack-bar.config';
@@ -61,7 +60,6 @@ const appOptions: AppOptions = {
     MatCardModule,
     MatSnackBarModule,
     MatTabsModule,
-    EntityModule,
     SharedModule,
     AppRoutingModule,
   ],
