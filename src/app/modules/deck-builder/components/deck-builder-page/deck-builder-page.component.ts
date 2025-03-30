@@ -1,8 +1,14 @@
+import { TitleCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Card, CardType } from 'src/app/models/entity.models';
 import { SelectionFilter } from 'src/app/models/library.models';
 import { DeckBuilderActions } from 'src/app/modules/deck-builder/store/deck-builder.actions';
+import { EntityModule } from 'src/app/modules/entity/entity.module';
+import { SharedModule } from 'src/app/modules/shared/shared.module';
 
 import {
   selectSelectedDeckCardCounts,
@@ -15,7 +21,7 @@ import {
 
 @Component({
   selector: 'hs-deck-builder-page',
-  standalone: false,
+  imports: [RouterModule, MatButtonModule, MatButtonToggleModule, EntityModule, SharedModule, TitleCasePipe],
   templateUrl: './deck-builder-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

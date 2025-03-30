@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { EntityModule } from 'src/app/modules/entity/entity.module';
+import { SharedModule } from 'src/app/modules/shared/shared.module';
 
 import { DeckBuilderActions } from '../../store/deck-builder.actions';
 import { selectSelectedHeroId, selectSelectionHeroes } from '../../store/deck-builder.selectors';
 
 @Component({
   selector: 'hs-hero-selection-page',
-  standalone: false,
+  imports: [RouterModule, EntityModule, SharedModule],
   templateUrl: './hero-selection-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
