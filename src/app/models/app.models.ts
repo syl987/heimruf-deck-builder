@@ -11,7 +11,7 @@ export interface AppOptions {
   /** Name of the copyright holder for display in the footer. */
   readonly copyrightName: string;
   /** Year of the copyright for display in the footer. */
-  readonly copyrightYear: string;
+  readonly copyrightYear: number;
 }
 
 export const APP_OPTIONS = new InjectionToken<AppOptions>('APP_OPTIONS');

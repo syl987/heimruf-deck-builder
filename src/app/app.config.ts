@@ -31,7 +31,7 @@ registerLocaleData(deLocale, 'de');
 const appOptions: AppOptions = {
   applicationName: 'Heimruf Deck Builder',
   copyrightName: 'Igor M.',
-  copyrightYear: '2024',
+  copyrightYear: new Date().getFullYear(),
 };
 
 export const appConfig: ApplicationConfig = {
