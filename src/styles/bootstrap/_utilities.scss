@@ -1,6 +1,8 @@
-// Utilities
+@use 'sass:map';
 
 @import 'bootstrap/scss/utilities';
+
+// Utilities
 
 $custom-utilities: (
   'cursor': (
@@ -40,4 +42,4 @@ $custom-utilities: (
   ),
 );
 
-$utilities: map-merge($utilities, $custom-utilities);
+$utilities: map.merge($utilities, $custom-utilities);
