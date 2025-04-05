@@ -26,9 +26,6 @@ export const selectSelectedDeckCardCounts = createSelector(selectSelectedDeckCar
 export const selectSelectedDeckCardsTotal = createSelector(selectSelectedDeckCardIdCounts, counts => counts.reduce((acc, c) => acc + c.count, 0));
 export const selectSelectedDeckEmpty = createSelector(selectSelectedDeckCardIdCounts, ({ length }) => !length);
 
-/* export const selectIsDeckSaved = createSelector(selectDeckBuilderState, ({ saved }) => saved); */
-/* export const selectIsDeckSaving = createSelector(selectDeckBuilderState, ({ saving }) => saving); */
-
 export const selectSelectionFilter = createSelector(selectDeckBuilderState, ({ filter }) => filter);
 
 export const selectSelectionHeroes = createSelector(selectPrefilterHeroIds, selectDataEntityEntities, (ids, entities) =>

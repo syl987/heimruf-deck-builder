@@ -23,10 +23,7 @@ import { config, effects, reducers, routerStoreConfig } from './store/app.store'
 
 registerLocaleData(deLocale, 'de');
 
-// TODO resolve remaining todos in all files
 // TODO create imprint and legal notice pages
-// TODO adjust card and footer: maintenance mode
-// TODO resolve any commented code in ts or html
 
 const appOptions: AppOptions = {
   applicationName: 'Heimruf Deck Builder',
