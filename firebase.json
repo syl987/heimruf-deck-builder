@@ -3,7 +3,14 @@
     {
       "target": "heimruf-deck-builder",
       "source": ".",
-      "frameworksBackend": {}
+      "public": "dist/heimruf-deck-builder",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/**",
+          "destination": "/index.html"
+        }
+      ]
     }
   ]
 }
