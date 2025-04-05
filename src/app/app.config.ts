@@ -23,8 +23,6 @@ import { config, effects, reducers, routerStoreConfig } from './store/app.store'
 
 registerLocaleData(deLocale, 'de');
 
-// TODO create imprint and legal notice pages
-
 const appOptions: AppOptions = {
   applicationName: 'Heimruf Deck Builder',
   copyrightName: 'Igor M.',

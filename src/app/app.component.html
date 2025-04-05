@@ -18,10 +18,13 @@
 </mat-tab-nav-panel>
 
 <footer class="container-fluid d-flex flex-column-reverse flex-md-row align-items-center pt-2m pb-s">
-  <div class="fw-bold fs-small py-2xs">© {{ options.copyrightYear }} {{ options.copyrightName }}</div>
+  <div class="fs-small py-2xs">
+    <span class="fw-bold">&copy; {{ options.copyrightYear }} {{ options.copyrightName }}</span>
+  </div>
 
   <!-- transparent vertical / horizontal separator -->
   <div class="mb-2xs me-auto"></div>
 
+  <a routerLink="/terms-of-use" class="fs-small mx-2xs px-s">Terms of use</a>
   <div class="fw-bold fs-small text-muted">v{{ build.version }} / last updated: {{ build.date | date }}</div>
 </footer>
