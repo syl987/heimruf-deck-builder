@@ -1,6 +1,6 @@
 {
   "name": "heimruf-deck-builder",
-  "version": "1.7.16",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "ng": "ng",
