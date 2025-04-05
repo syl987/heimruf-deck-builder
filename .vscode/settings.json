@@ -9,5 +9,29 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.codeActionsOnSave.mode": "problems",
   "extensions.ignoreRecommendations": false,
-  "cSpell.words": ["hearthstonejson", "heimruf", "noopable", "Nums", "Photoshop", "prefilter", "prefiltered"]
+  "cSpell.words": [
+    "AVAILABE",
+    "BATTLECRIES",
+    "BATTLECRY",
+    "Deathrattle",
+    "hearthstonejson",
+    "heimruf",
+    "holz",
+    "MURLOC",
+    "NAXX",
+    "NONSTEALTH",
+    "noopable",
+    "Nums",
+    "Photoshop",
+    "precreate",
+    "prefilter",
+    "prefiltered",
+    "REMOVEDFROMGAME",
+    "SETASIDE",
+    "SPELLDAMAGE",
+    "Spellpower",
+    "SUBCARD",
+    "TOPDECK",
+    "WINDFURY"
+  ]
 }

@@ -39,7 +39,7 @@ For development, an IDE such as [Visual Studio Code](https://code.visualstudio.c
 - code formatting: [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - please set auto-format on save within your IDE
 - git capabilities: [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 
-<sup>Shared extension recommentations for Visual Studio Code are already included within the repository.</sup>
+<sup>Shared extension recommendations for Visual Studio Code are already included within the repository.</sup>
 
 ### IDE Settings
 
@@ -71,13 +71,9 @@ Visit [Bootstrap Reboot](https://getbootstrap.com/docs/5.1/content/reboot/) and 
 
 Visit [Bootstrap Typography](https://getbootstrap.com/docs/5.1/content/reboot/), [Custom Typography](/src/styles/scss/common/_typography.scss) and [Imported Fonts](/src/styles/fonts/HKGrotesk/HKGroteskLegacy.css) for typography reference.
 
-<!-- ### Icons
-
-Visit [Font Awesome 4.7.0](https://fontawesome.com/v4.7.0/icons/) for icon reference. -->
-
 ### Grid
 
-Visit [Bootstrap Grid](https://getbootstrap.com/docs/5.1/layout/grid/) <!-- and [Custom Container Styles](/src/styles/scss/common/_container.scss)  -->for grid utilities reference.
+Visit [Bootstrap Grid](https://getbootstrap.com/docs/5.1/layout/grid/) for grid utilities reference.
 
 ### Utilities
 

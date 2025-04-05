@@ -20,7 +20,6 @@ class DeckAdapterImpl implements DeckAdapter {
     const alreadyIncluded = deck.cardIdCounts.some(c => c.id === id);
 
     if (alreadyIncluded) {
-      // TODO check for duplicates
       return { ...deck, cardIdCounts: deck.cardIdCounts.map(c => (c.id === id ? { ...c, count: c.count + 1 } : c)) };
     }
     return { ...deck, cardIdCounts: [...deck.cardIdCounts, { id, count: 1 }] };
@@ -30,7 +29,6 @@ class DeckAdapterImpl implements DeckAdapter {
     const currentCount = deck.cardIdCounts.find(c => c.id === id)?.count || 0;
 
     if (currentCount > 1) {
-      // TODO check for duplicates
       return { ...deck, cardIdCounts: deck.cardIdCounts.map(c => (c.id === id ? { ...c, count: c.count - 1 } : c)) };
     }
     return { ...deck, cardIdCounts: deck.cardIdCounts.filter(c => c.id !== id) };

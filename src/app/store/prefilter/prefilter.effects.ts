@@ -13,14 +13,14 @@ export class PrefilterEffects {
   readonly cardPrefilterInit = createEffect(() => {
     return this.store.select(selectDataEntities).pipe(
       filter(notEmpty),
-      map(items => PrefilterActions.initCards({ items: createCollectibleCardPrefilter(items) })), // TODO importing any entity
+      map(items => PrefilterActions.initCards({ items: createCollectibleCardPrefilter(items) })),
     );
   });
 
   readonly heroesPrefilterInit = createEffect(() => {
     return this.store.select(selectDataEntities).pipe(
       filter(notEmpty),
-      map(items => PrefilterActions.initHeroes({ ids: selectCollectibleHeroIds(items) })), // TODO importing any entity
+      map(items => PrefilterActions.initHeroes({ ids: selectCollectibleHeroIds(items) })),
     );
   });
 

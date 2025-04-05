@@ -3,7 +3,6 @@
   justify-content: center;
 }
 
-// TODO find out the appropriate classes
 .mat-mdc-tab-link {
   @include hs-control-text;
   opacity: 1 !important; // no transparency on inactive links

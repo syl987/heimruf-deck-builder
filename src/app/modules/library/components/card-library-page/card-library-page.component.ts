@@ -85,6 +85,7 @@ export class CardLibraryPageComponent {
     });
     overlayRef.attach(new TemplatePortal(this.cardOverlayTemplateRef, this.viewContainerRef));
 
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     merge(overlayRef.backdropClick(), overlayRef.keydownEvents().pipe(filter(({ keyCode }) => keyCode === ESCAPE)))
       .pipe(first(), takeUntilDestroyed(this.destroyRef))
       .subscribe(_ => {

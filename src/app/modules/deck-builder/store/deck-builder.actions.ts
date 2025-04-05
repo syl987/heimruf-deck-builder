@@ -16,9 +16,5 @@ export const DeckBuilderActions = createActionGroup({
 
     'remove card': props<{ id: string }>(),
     'remove cards': emptyProps(),
-
-    /* 'save': emptyProps(), */
-    /* 'save SUCCESS': emptyProps(), */
-    /* 'save ERROR': emptyProps(), */
   },
 });

@@ -37,9 +37,6 @@ $hs-card-text-font-size: 16px;
 $hs-card-race-font-size: 14px;
 
 @mixin hs-entity-highlighting {
-  // TODO size parameter
-  // TODO support multiple colors
-
   filter: drop-shadow(0 0 5px black);
 
   &.active,

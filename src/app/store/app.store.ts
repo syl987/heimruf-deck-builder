@@ -24,7 +24,7 @@ export const reducers: ActionReducerMap<AppState> = {
 export const effects = [DataEffects, PrefilterEffects, ToastEffects];
 
 export const config: RootStoreConfig<AppState> = {
-  metaReducers: isDevMode() ? [consoleLogMetaReducer] : [consoleLogMetaReducer],
+  metaReducers: [consoleLogMetaReducer],
   runtimeChecks: {
     strictActionImmutability: isDevMode(),
     strictStateImmutability: isDevMode(),

@@ -23,30 +23,10 @@ import { config, effects, reducers, routerStoreConfig } from './store/app.store'
 
 registerLocaleData(deLocale, 'de');
 
-// TODO move todos into a TODO.md file
 // TODO resolve remaining todos in all files
 // TODO create imprint and legal notice pages
-// stay at material 2, bootstrap, current ngrx syntax
 // TODO adjust card and footer: maintenance mode
 // TODO resolve any commented code in ts or html
-
-// TODO fix fonts loading speed and transition
-// TODO fix card image miner
-// TODO enable more card sets
-// TODO card set filter + prefilter
-// TODO improve performance on mobile
-
-// TODO precreate card components - check commit: e631561174f949a037ebe69b2b635e64444154bf
-
-// TODO normalize store files and logic
-// TODO migrate image data as image files
-
-// TODO bug: mat ripple positioning on scaled elements
-// TODO bug: active tab link not set active on load
-// TODO bug: entity blur on change detection
-
-// TODO bug: performance on mobile / tablet
-// TODO bug: image positioning on iOS
 
 const appOptions: AppOptions = {
   applicationName: 'Heimruf Deck Builder',
@@ -74,10 +54,6 @@ export const appConfig: ApplicationConfig = {
     { provide: APP_DATA_CONFIG, useValue: dataConfig },
 
     { provide: ErrorStateMatcher, useClass: DirtyAndTouchedMatcher },
-
-    /* { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: dialogConfig }, */
-    /* { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: formFieldConfig }, */
-    /* { provide: MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS, useValue: progressSpinnerConfig }, */
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: snackBarConfig },
     { provide: MAT_BUTTON_TOGGLE_DEFAULT_OPTIONS, useValue: buttonToggleConfig },
   ],

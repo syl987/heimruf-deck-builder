@@ -8,9 +8,9 @@ import * as dataConfig from 'src/data.config.json';
 export interface AppOptions {
   /** Application name to display in header and other places. */
   readonly applicationName: string;
-  /** Name of the legal copyright holder for display in the footer. */
+  /** Name of the copyright holder for display in the footer. */
   readonly copyrightName: string;
-  /** Year of the last update for display in the footer. */
+  /** Year of the copyright for display in the footer. */
   readonly copyrightYear: string;
 }
 

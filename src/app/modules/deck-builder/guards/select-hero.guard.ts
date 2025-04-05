@@ -8,8 +8,6 @@ import { notEmpty } from 'src/app/functions/typeguard.functions';
 import { DeckBuilderActions } from '../store/deck-builder.actions';
 import { selectSelectionHeroes } from '../store/deck-builder.selectors';
 
-// const MAX_WAIT_TIME = 5000; takeUntil(timer(MAX_WAIT_TIME)), // TODO avoid memory leak if not loaded
-
 export const selectHeroGuard: CanActivateFn = (route, state, store = inject(Store), router = inject(Router)) => {
   const param: string | undefined = route.params['cardClass']?.toUpperCase();
 

@@ -171,14 +171,14 @@ module.exports = tseslint.config(
       '@angular-eslint/template/button-has-type': 'off', // currently unused, prevent unintended submit type if placed within a form
       '@angular-eslint/template/eqeqeq': ['warn', { allowNullOrUndefined: true }], // recommended override: provide options
       '@angular-eslint/template/i18n': 'off', // currently unused
-      '@angular-eslint/template/no-any': 'warn',
+      '@angular-eslint/template/no-any': 'off', // currently unused
       '@angular-eslint/template/no-duplicate-attributes': 'warn',
       '@angular-eslint/template/no-inline-styles': 'off', // currently unused
       '@angular-eslint/template/no-interpolation-in-attributes': 'warn',
       '@angular-eslint/template/no-positive-tabindex': 'warn',
       '@angular-eslint/template/prefer-control-flow': 'warn',
       '@angular-eslint/template/prefer-ngsrc': 'off', // currently unused
-      '@angular-eslint/template/prefer-self-closing-tags': 'off', // TODO resolve svg elements and enable
+      '@angular-eslint/template/prefer-self-closing-tags': 'warn',
     },
   },
 );
