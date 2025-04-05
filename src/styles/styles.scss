@@ -14,3 +14,7 @@
 .hs-title {
   @include hs-control-text;
 }
+
+.hs-regular-text {
+  @include hs-regular-text;
+}

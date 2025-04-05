@@ -43,10 +43,10 @@
         <hs-card [data]="cardCount.card" [count]="cardCount.count" />
       </button>
     }
-    <p class="text-center fs-large fw-bold text-nowrap my-2xs">Deck: {{ deckCardsTotal$ | async }} / 30 cards</p>
+    <p class="text-center fs-large fw-bold hs-regular-text text-nowrap my-2xs">Deck: {{ deckCardsTotal$ | async }} / 30 cards</p>
 
     @if (deckEmpty$ | async) {
-      <p class="text-center text-muted fw-bold">Click on cards on the left to add them to your deck.</p>
+      <p class="text-center text-muted fs-small fw-bold hs-regular-text px-s">Click on cards on the left to add them to your deck.</p>
     } @else {
       <div class="text-center">
         <button mat-button (click)="removeAllCards()">Clear</button>
