@@ -11,37 +11,37 @@
 // that you are using.
 @include mat.elevation-classes();
 @include mat.app-background();
-/* @include mat.autocomplete-theme($hs-light-theme); */
-/* @include mat.badge-theme($hs-light-theme); */
-/* @include mat.bottom-sheet-theme($hs-light-theme); */
-@include mat.button-theme($hs-light-theme);
-@include mat.button-toggle-theme($hs-light-theme);
-@include mat.card-theme($hs-light-theme);
-/* @include mat.checkbox-theme($hs-light-theme); */
-/* @include mat.chips-theme($hs-light-theme); */
-/* @include mat.datepicker-theme($hs-light-theme); */
-/* @include mat.dialog-theme($hs-light-theme); */
-/* @include mat.divider-theme($hs-light-theme); */
-/* @include mat.expansion-theme($hs-light-theme); */
-/* @include mat.form-field-theme($hs-light-theme); */
-/* @include mat.grid-list-theme($hs-light-theme); */
-/* @include mat.icon-theme($hs-light-theme); */
-/* @include mat.input-theme($hs-light-theme); */
-/* @include mat.list-theme($hs-light-theme); */
-/* @include mat.menu-theme($hs-light-theme); */
-/* @include mat.paginator-theme($hs-light-theme); */
-/* @include mat.progress-bar-theme($hs-light-theme); */
-/* @include mat.progress-spinner-theme($hs-light-theme); */
-/* @include mat.radio-theme($hs-light-theme); */
-/* @include mat.select-theme($hs-light-theme); */
-/* @include mat.sidenav-theme($hs-light-theme); */
-/* @include mat.slide-toggle-theme($hs-light-theme); */
-/* @include mat.slider-theme($hs-light-theme); */
-@include mat.snack-bar-theme($hs-light-theme);
-/* @include mat.stepper-theme($hs-light-theme); */
-/* @include mat.sort-theme($hs-light-theme); */
-/* @include mat.table-theme($hs-light-theme); */
-@include mat.tabs-theme($hs-light-theme);
-/* @include mat.toolbar-theme($hs-light-theme); */
-/* @include mat.tooltip-theme($hs-light-theme); */
-/* @include mat.tree-theme($hs-light-theme); */
+/* @include mat.autocomplete-theme($hs-theme); */
+/* @include mat.badge-theme($hs-theme); */
+/* @include mat.bottom-sheet-theme($hs-theme); */
+@include mat.button-theme($hs-theme);
+@include mat.button-toggle-theme($hs-theme);
+@include mat.card-theme($hs-theme);
+/* @include mat.checkbox-theme($hs-theme); */
+/* @include mat.chips-theme($hs-theme); */
+/* @include mat.datepicker-theme($hs-theme); */
+/* @include mat.dialog-theme($hs-theme); */
+/* @include mat.divider-theme($hs-theme); */
+/* @include mat.expansion-theme($hs-theme); */
+/* @include mat.form-field-theme($hs-theme); */
+/* @include mat.grid-list-theme($hs-theme); */
+/* @include mat.icon-theme($hs-theme); */
+/* @include mat.input-theme($hs-theme); */
+/* @include mat.list-theme($hs-theme); */
+/* @include mat.menu-theme($hs-theme); */
+/* @include mat.paginator-theme($hs-theme); */
+/* @include mat.progress-bar-theme($hs-theme); */
+/* @include mat.progress-spinner-theme($hs-theme); */
+/* @include mat.radio-theme($hs-theme); */
+/* @include mat.select-theme($hs-theme); */
+/* @include mat.sidenav-theme($hs-theme); */
+/* @include mat.slide-toggle-theme($hs-theme); */
+/* @include mat.slider-theme($hs-theme); */
+@include mat.snack-bar-theme($hs-theme);
+/* @include mat.stepper-theme($hs-theme); */
+/* @include mat.sort-theme($hs-theme); */
+/* @include mat.table-theme($hs-theme); */
+@include mat.tabs-theme($hs-theme);
+/* @include mat.toolbar-theme($hs-theme); */
+/* @include mat.tooltip-theme($hs-theme); */
+/* @include mat.tree-theme($hs-theme); */

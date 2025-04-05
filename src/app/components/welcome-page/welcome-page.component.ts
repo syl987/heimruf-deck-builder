@@ -5,7 +5,6 @@ import { MatCardModule } from '@angular/material/card';
   selector: 'hs-welcome-page',
   imports: [MatCardModule],
   templateUrl: './welcome-page.component.html',
-  styleUrl: './welcome-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WelcomePageComponent {
