@@ -29,6 +29,9 @@
             ],
             "styles": ["src/styles/styles.scss"],
             "stylePreprocessorOptions": {
+              "sass": {
+                "silenceDeprecations": ["import"]
+              },
               "includePaths": ["node_modules/", "src/styles/shared"]
             },
             "scripts": []
