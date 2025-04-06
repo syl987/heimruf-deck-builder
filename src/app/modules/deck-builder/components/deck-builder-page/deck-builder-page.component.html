@@ -1,6 +1,6 @@
 <div class="container-fluid d-flex justify-content-between">
   <div class="d-flex flex-column">
-    <mat-button-toggle-group #group="matButtonToggleGroup" [value]="filter$ | async" (change)="filterCards($event.value)" class="d-flex flex-wrap mb-s mat-elevation-z0">
+    <mat-button-toggle-group #group="matButtonToggleGroup" [value]="filter$ | async" (change)="filterCards($event.value)" class="d-flex flex-wrap mt-2xs mb-s mat-elevation-z0">
       <mat-button-toggle [value]="SelectionFilter.CLASS">{{ SelectionFilter.CLASS | titlecase }}</mat-button-toggle>
       <mat-button-toggle [value]="SelectionFilter.NEUTRAL" class="me-s">{{ SelectionFilter.NEUTRAL | titlecase }}</mat-button-toggle>
 
