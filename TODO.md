@@ -13,8 +13,8 @@
 
 ## Bug Issues
 
-- [ ] mat ripple positioning on scaled elements
-- [ ] active tab link not set active on load
+- [ ] re-enable mat-ripple
+- [ ] mat-ripple positioning on scaled elements
 - [ ] entity blur on change detection
 - [ ] avoid memory leak on navigating to deck-builder if hero is not loaded
 - [ ] performance on mobile / tablet
