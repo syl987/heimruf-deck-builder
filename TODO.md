@@ -3,6 +3,8 @@
 ## Features
 
 - [ ] create and support a deep link representing all currently built decks
+- [ ] set scrolling to content only - with page height to 100vh with some min-height
+- [ ] improve tabs and toggle-button visuals
 
 ## Technical Improvements
 
