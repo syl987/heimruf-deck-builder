@@ -1,4 +1,4 @@
 var build = {
-  version: '2.1.1',
+  version: '2.2.0',
   date: '2025-04-06',
 };
