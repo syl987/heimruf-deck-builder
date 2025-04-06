@@ -2,6 +2,10 @@
   @include app-container;
 }
 
+.container-lg {
+  @include app-container-lg;
+}
+
 .container-fluid {
   @include app-container-fluid;
 }

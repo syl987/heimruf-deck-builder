@@ -26,6 +26,15 @@
   @include app-container-fluid;
 }
 
+@mixin app-container-lg {
+  width: $app-container-lg-max-width;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include app-container-fluid;
+}
+
 // entity
 
 $hs-entity-highlight-color-inactive: white;
