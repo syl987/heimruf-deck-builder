@@ -2,7 +2,7 @@ import { ESCAPE } from '@angular/cdk/keycodes';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { FullscreenOverlayContainer, Overlay, OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { AsyncPipe, LowerCasePipe, TitleCasePipe } from '@angular/common';
+import { AsyncPipe, LowerCasePipe, NgComponentOutlet, TitleCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, DestroyRef, Inject, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -15,7 +15,7 @@ import { Card, CardType } from 'src/app/models/entity.models';
 import { EntityModule } from 'src/app/modules/entity/entity.module';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 
-import { selectLibraryCards } from '../../store/library.selectors';
+import { selectLibraryCardComponents } from '../../store/library.selectors';
 
 function getCardOverlayScale(breakpoint: string): number {
   switch (breakpoint) {
@@ -34,14 +34,14 @@ function getCardOverlayScale(breakpoint: string): number {
 
 @Component({
   selector: 'hs-card-library-page',
-  imports: [RouterModule, OverlayModule, MatTabsModule, EntityModule, SharedModule, TitleCasePipe, LowerCasePipe, AsyncPipe],
+  imports: [NgComponentOutlet, RouterModule, OverlayModule, MatTabsModule, EntityModule, SharedModule, TitleCasePipe, LowerCasePipe, AsyncPipe],
   templateUrl: './card-library-page.component.html',
   styleUrl: './card-library-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{ provide: OverlayContainer, useClass: FullscreenOverlayContainer }],
 })
 export class CardLibraryPageComponent {
-  readonly cards$ = this.store.select(selectLibraryCards);
+  readonly cardComponents$ = this.store.select(selectLibraryCardComponents);
 
   private readonly breakpoints$ = merge(
     this.observer.observe([Breakpoints.XSmall]),

@@ -4,9 +4,9 @@ import { Store } from '@ngrx/store';
 import { filter, map } from 'rxjs';
 
 import { notEmpty } from 'src/app/functions/typeguard.functions';
+import { selectPrefilteredHeroes } from 'src/app/store/prefilter/prefilter.selectors';
 
 import { DeckBuilderActions } from '../store/deck-builder.actions';
-import { selectPrefilteredHeroes } from 'src/app/store/prefilter/prefilter.selectors';
 
 export const selectHeroGuard: CanActivateFn = (route, state, store = inject(Store), router = inject(Router)) => {
   const param: string | undefined = route.params['cardClass']?.toUpperCase();
