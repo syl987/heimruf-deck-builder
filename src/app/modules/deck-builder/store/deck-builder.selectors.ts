@@ -6,7 +6,7 @@ import { isCard, mapEntity } from 'src/app/helpers/entity.helpers';
 import { CardClass } from 'src/app/models/entity.models';
 import { SelectionFilter } from 'src/app/models/library.models';
 import { selectDataEntities } from 'src/app/store/data/data.selectors';
-import { selectPrefilterEntities } from 'src/app/store/prefilter/prefilter.selectors';
+import { selectCardPrefilterEntities } from 'src/app/store/prefilter/prefilter.selectors';
 
 import * as fromDeckBuilder from './deck-builder.reducer';
 
@@ -28,7 +28,7 @@ export const selectSelectedDeckEmpty = createSelector(selectSelectedDeckCardIdCo
 
 export const selectSelectionFilter = createSelector(selectDeckBuilderState, ({ filter }) => filter);
 
-export const selectSelectionCardIds = createSelector(selectSelectionFilter, selectSelectedHero, selectPrefilterEntities, (filter, hero, prefilteredIds): string[] => {
+export const selectSelectionCardIds = createSelector(selectSelectionFilter, selectSelectedHero, selectCardPrefilterEntities, (filter, hero, prefilteredIds): string[] => {
   if (!hero?.cardClass) {
     return [];
   }

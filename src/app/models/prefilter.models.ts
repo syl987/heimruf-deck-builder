@@ -1,6 +1,6 @@
 import { CardClass } from './entity.models';
 
-export interface PrefilteredCardIds {
+export interface CardPrefilter {
   cardClass: CardClass;
   cardIds: string[];
   withNeutral: {

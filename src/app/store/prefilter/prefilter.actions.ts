@@ -1,10 +1,10 @@
 import { createActionGroup, props } from '@ngrx/store';
 
-import { PrefilteredCardIds } from '../../models/prefilter.models';
+import { CardPrefilter } from '../../models/prefilter.models';
 
 export const PrefilterActions = createActionGroup({
   source: 'Prefilter',
   events: {
-    initialized: props<{ cardIds: string[]; heroIds: string[]; items: PrefilteredCardIds[] }>(),
+    initialized: props<{ items: CardPrefilter[]; cardIds: string[]; heroIds: string[] }>(),
   },
 });

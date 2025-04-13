@@ -15,9 +15,9 @@ export class PrefilterEffects {
       filter(notEmpty),
       map(items =>
         PrefilterActions.initialized({
+          items: createCollectibleCardPrefilter(items),
           cardIds: selectCollectibleCardIds(items),
           heroIds: selectCollectibleHeroIds(items),
-          items: createCollectibleCardPrefilter(items),
         }),
       ),
     );

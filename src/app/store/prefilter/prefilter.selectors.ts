@@ -7,10 +7,10 @@ import { isCard, isHero } from 'src/app/helpers/entity.helpers';
 
 export const selectPrefilterState = createFeatureSelector<fromPrefilter.State>(fromPrefilter.prefilterFeatureKey);
 
-export const selectPrefilterIds = createSelector(selectPrefilterState, fromPrefilter.selectIds);
-export const selectPrefilterEntities = createSelector(selectPrefilterState, fromPrefilter.selectEntities);
-export const selectPrefilters = createSelector(selectPrefilterState, fromPrefilter.selectAll);
-export const selectPrefiltersTotal = createSelector(selectPrefilterState, fromPrefilter.selectTotal);
+export const selectCardPrefilterIds = createSelector(selectPrefilterState, fromPrefilter.selectIds);
+export const selectCardPrefilterEntities = createSelector(selectPrefilterState, fromPrefilter.selectEntities);
+export const selectCardPrefilters = createSelector(selectPrefilterState, fromPrefilter.selectAll);
+export const selectCardPrefiltersTotal = createSelector(selectPrefilterState, fromPrefilter.selectTotal);
 
 export const selectPrefilterCardIds = createSelector(selectPrefilterState, ({ cardIds }) => cardIds);
 export const selectPrefilterHeroIds = createSelector(selectPrefilterState, ({ heroIds }) => heroIds);
