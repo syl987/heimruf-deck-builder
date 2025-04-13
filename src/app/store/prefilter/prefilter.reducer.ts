@@ -24,8 +24,8 @@ const initialState: State = cardAdapter.getInitialState({
 
 export const reducer = createReducer(
   initialState,
-  on(PrefilterActions.initCards, (state, { ids, items }) => ({ ...cardAdapter.setAll(items, state), cardIds: ids })),
-  on(PrefilterActions.initHeroes, (state, { ids }) => ({ ...state, heroIds: ids })),
+  on(PrefilterActions.cardPrefilterInitialized, (state, { ids, items }) => ({ ...cardAdapter.setAll(items, state), cardIds: ids })),
+  on(PrefilterActions.heroPrefilterInitialized, (state, { ids }) => ({ ...state, heroIds: ids })),
 );
 
 export const { selectAll, selectEntities, selectIds, selectTotal } = cardAdapter.getSelectors();

@@ -10,17 +10,17 @@ import { selectDataEntities } from '../data/data.selectors';
 
 @Injectable()
 export class PrefilterEffects {
-  readonly cardPrefilterInit = createEffect(() => {
+  readonly cardPrefilterInitialized = createEffect(() => {
     return this.store.select(selectDataEntities).pipe(
       filter(notEmpty),
-      map(items => PrefilterActions.initCards({ ids: selectCollectibleCardIds(items), items: createCollectibleCardPrefilter(items) })),
+      map(items => PrefilterActions.cardPrefilterInitialized({ ids: selectCollectibleCardIds(items), items: createCollectibleCardPrefilter(items) })),
     );
   });
 
-  readonly heroesPrefilterInit = createEffect(() => {
+  readonly heroPrefilterInitialized = createEffect(() => {
     return this.store.select(selectDataEntities).pipe(
       filter(notEmpty),
-      map(items => PrefilterActions.initHeroes({ ids: selectCollectibleHeroIds(items) })),
+      map(items => PrefilterActions.heroPrefilterInitialized({ ids: selectCollectibleHeroIds(items) })),
     );
   });
 
