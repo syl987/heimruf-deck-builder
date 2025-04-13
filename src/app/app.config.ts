@@ -37,7 +37,7 @@ export const appConfig: ApplicationConfig = {
     provideStore(reducers, config),
     provideEffects(effects),
     provideRouterStore(routerStoreConfig),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode(), connectInZone: true }),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
 
     importProvidersFrom(
       MatSnackBarModule, // used centrally
