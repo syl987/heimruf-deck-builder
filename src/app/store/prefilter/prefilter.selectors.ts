@@ -9,4 +9,5 @@ export const selectPrefilterEntities = createSelector(selectPrefilterState, from
 export const selectPrefilterIds = createSelector(selectPrefilterState, fromPrefilter.selectIds);
 export const selectPrefilterTotal = createSelector(selectPrefilterState, fromPrefilter.selectTotal);
 
+export const selectPrefilterCardIds = createSelector(selectPrefilterState, ({ cardIds }) => cardIds);
 export const selectPrefilterHeroIds = createSelector(selectPrefilterState, ({ heroIds }) => heroIds);

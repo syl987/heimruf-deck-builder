@@ -86,6 +86,14 @@ export function createCollectibleCardPrefilter(items: Entity[]): PrefilteredCard
   }));
 }
 
+export function selectCollectibleCardIds(items: Entity[]): string[] {
+  return items
+    .filter(item => item.collectible)
+    .filter(isCard)
+    .sort(entityComparer)
+    .map(item => item.id);
+}
+
 export function selectCollectibleHeroIds(items: Entity[]): string[] {
   return items
     .filter(item => item.collectible)

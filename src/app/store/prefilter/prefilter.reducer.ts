@@ -9,6 +9,7 @@ export const PAGE_SIZE = 10;
 export const prefilterFeatureKey = 'prefilter';
 
 export interface State extends EntityState<PrefilteredCardIds> {
+  cardIds: string[];
   heroIds: string[];
 }
 
@@ -17,12 +18,13 @@ const cardAdapter = createEntityAdapter<PrefilteredCardIds>({
 });
 
 const initialState: State = cardAdapter.getInitialState({
+  cardIds: [],
   heroIds: [],
 });
 
 export const reducer = createReducer(
   initialState,
-  on(PrefilterActions.initCards, (state, { items }) => cardAdapter.setAll(items, state)),
+  on(PrefilterActions.initCards, (state, { ids, items }) => ({ ...cardAdapter.setAll(items, state), cardIds: ids })),
   on(PrefilterActions.initHeroes, (state, { ids }) => ({ ...state, heroIds: ids })),
 );
 
