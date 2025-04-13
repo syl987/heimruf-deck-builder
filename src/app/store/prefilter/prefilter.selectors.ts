@@ -1,9 +1,10 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import * as fromPrefilter from './prefilter.reducer';
-import { selectDataEntities } from '../data/data.selectors';
 import { notUndefined } from 'src/app/functions/typeguard.functions';
 import { isCard, isHero } from 'src/app/helpers/entity.helpers';
+
+import * as fromPrefilter from './prefilter.reducer';
+import { selectDataEntities } from '../data/data.selectors';
 
 export const selectPrefilterState = createFeatureSelector<fromPrefilter.State>(fromPrefilter.prefilterFeatureKey);
 

@@ -1,7 +1,9 @@
-import { createReducer, on } from '@ngrx/store';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
-import { PrerenderActions } from './prerender.actions';
+import { createReducer, on } from '@ngrx/store';
+
 import { CardPrerender } from 'src/app/models/prerender.models';
+
+import { PrerenderActions } from './prerender.actions';
 
 export const prerenderFeatureKey = 'prerender';
 

@@ -1,8 +1,8 @@
 import { ApplicationRef, ComponentRef, createComponent, inject, Type } from '@angular/core';
 
+import { isCard, isHero } from './entity.helpers';
 import { CardType, Entity } from '../models/entity.models';
 import { CardPrerender, HeroPrerender } from '../models/prerender.models';
-import { isCard, isHero } from './entity.helpers';
 
 export async function createCardComponents(data: Entity[]): Promise<CardPrerender[]> {
   return Promise.all(

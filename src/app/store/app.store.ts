@@ -7,9 +7,9 @@ import { DataEffects } from './data/data.effects';
 import * as fromData from './data/data.reducer';
 import { PrefilterEffects } from './prefilter/prefilter.effects';
 import * as fromPrefilter from './prefilter/prefilter.reducer';
+import { PrerenderEffects } from './prerender/prerender.effects';
 import * as fromPrerender from './prerender/prerender.reducer';
 import { ToastEffects } from './toast/toast.effects';
-import { PrerenderEffects } from './prerender/prerender.effects';
 
 interface AppState {
   router: RouterReducerState<MinimalRouterStateSnapshot>;
