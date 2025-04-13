@@ -10,6 +10,8 @@
 
 - [ ] precreate card components for better performance - check commit: e631561174f949a037ebe69b2b635e64444154bf
 - [ ] improve fonts loading speed and transition
+- [ ] kick absolute import paths and add eslint rule
+- [ ] add selected id to library store
 
 ## Bug Issues
 
