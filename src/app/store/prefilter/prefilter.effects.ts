@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createEffect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { filter, map } from 'rxjs';
+import { filter, forkJoin, map, switchMap } from 'rxjs';
 
 import { PrefilterActions } from './prefilter.actions';
 import { notEmpty } from '../../functions/typeguard.functions';
@@ -13,12 +13,12 @@ export class PrefilterEffects {
   readonly initialized = createEffect(() => {
     return this.store.select(selectData).pipe(
       filter(notEmpty),
-      map(items =>
-        PrefilterActions.initialized({
+      switchMap(items =>
+        forkJoin({
           items: createCollectibleCardPrefilter(items),
           cardIds: selectCollectibleCardIds(items),
           heroIds: selectCollectibleHeroIds(items),
-        }),
+        }).pipe(map(payload => PrefilterActions.initialized(payload))),
       ),
     );
   });
