@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
@@ -15,12 +14,7 @@ export class DataEffects implements OnInitEffects {
       concatMap(_ =>
         this.dataService.loadCardData().pipe(
           map(cardData => DataActions.loadSUCCESS({ cardData })),
-          catchError((err?: Partial<HttpErrorResponse>) => {
-            switch (err?.status) {
-              default:
-                return of(DataActions.loadERROR());
-            }
-          }),
+          catchError(_ => of(DataActions.loadERROR())),
         ),
       ),
     );

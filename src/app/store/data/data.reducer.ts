@@ -8,7 +8,7 @@ export const dataFeatureKey = 'data';
 
 export interface State extends EntityState<Entity> {
   loading: boolean;
-  loadError?: boolean;
+  loaded: boolean;
 }
 
 const adapter = createEntityAdapter<Entity>({
@@ -17,6 +17,7 @@ const adapter = createEntityAdapter<Entity>({
 
 const initialState: State = adapter.getInitialState({
   loading: false,
+  loaded: false,
 });
 
 export const reducer = createReducer(
@@ -24,19 +25,17 @@ export const reducer = createReducer(
   on(DataActions.load, state => ({
     ...state,
     loading: true,
-    loadError: undefined,
   })),
   on(DataActions.loadSUCCESS, (state, { cardData }) =>
     adapter.upsertMany(cardData, {
       ...state,
       loading: false,
-      loadError: undefined,
+      loaded: true,
     }),
   ),
   on(DataActions.loadERROR, state => ({
     ...state,
     loading: false,
-    loadError: true,
   })),
 );
 

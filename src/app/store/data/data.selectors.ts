@@ -10,4 +10,4 @@ export const selectData = createSelector(selectDataState, fromData.selectAll);
 export const selectDataTotal = createSelector(selectDataState, fromData.selectTotal);
 
 export const selectDataLoading = createSelector(selectDataState, ({ loading }) => loading);
-export const selectDataLoadError = createSelector(selectDataState, ({ loadError }) => loadError);
+export const selectDataLoaded = createSelector(selectDataState, ({ loaded }) => loaded);
