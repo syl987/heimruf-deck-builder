@@ -13,18 +13,18 @@ export interface State extends EntityState<PrefilteredCardIds> {
   heroIds: string[];
 }
 
-const cardAdapter = createEntityAdapter<PrefilteredCardIds>({
+const adapter = createEntityAdapter<PrefilteredCardIds>({
   selectId: item => item.cardClass,
 });
 
-const initialState: State = cardAdapter.getInitialState({
+const initialState: State = adapter.getInitialState({
   cardIds: [],
   heroIds: [],
 });
 
 export const reducer = createReducer(
   initialState,
-  on(PrefilterActions.initialized, (state, { cardIds, heroIds, items }) => ({ ...cardAdapter.setAll(items, state), cardIds, heroIds })),
+  on(PrefilterActions.initialized, (state, { cardIds, heroIds, items }) => ({ ...adapter.setAll(items, state), cardIds, heroIds })),
 );
 
-export const { selectAll, selectEntities, selectIds, selectTotal } = cardAdapter.getSelectors();
+export const { selectAll, selectEntities, selectIds, selectTotal } = adapter.getSelectors();
