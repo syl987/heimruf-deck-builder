@@ -2,11 +2,11 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { notUndefined } from 'src/app/functions/typeguard.functions';
 import { toCardCounts } from 'src/app/helpers/deck.helpers';
-import { isCard, isHero, mapEntity } from 'src/app/helpers/entity.helpers';
+import { isCard, mapEntity } from 'src/app/helpers/entity.helpers';
 import { CardClass } from 'src/app/models/entity.models';
 import { SelectionFilter } from 'src/app/models/library.models';
-import { selectDataEntityEntities } from 'src/app/store/data/data.selectors';
-import { selectPrefilterEntities, selectPrefilterHeroIds } from 'src/app/store/prefilter/prefilter.selectors';
+import { selectDataEntities } from 'src/app/store/data/data.selectors';
+import { selectPrefilterEntities } from 'src/app/store/prefilter/prefilter.selectors';
 
 import * as fromDeckBuilder from './deck-builder.reducer';
 
@@ -18,22 +18,15 @@ export const selectDeckIds = createSelector(selectDeckBuilderState, fromDeckBuil
 export const selectDeckTotal = createSelector(selectDeckBuilderState, fromDeckBuilder.selectTotal);
 
 export const selectSelectedHeroId = createSelector(selectDeckBuilderState, ({ selectedHeroId }) => selectedHeroId);
-export const selectSelectedHero = createSelector(selectSelectedHeroId, selectDataEntityEntities, mapEntity);
+export const selectSelectedHero = createSelector(selectSelectedHeroId, selectDataEntities, mapEntity);
 
 export const selectSelectedDeck = createSelector(selectSelectedHero, selectDeckEntities, (hero, entities) => mapEntity(hero?.id, entities));
 export const selectSelectedDeckCardIdCounts = createSelector(selectSelectedDeck, deck => (deck ? fromDeckBuilder.getCardIdCounts(deck) : []));
-export const selectSelectedDeckCardCounts = createSelector(selectSelectedDeckCardIdCounts, selectDataEntityEntities, toCardCounts);
+export const selectSelectedDeckCardCounts = createSelector(selectSelectedDeckCardIdCounts, selectDataEntities, toCardCounts);
 export const selectSelectedDeckCardsTotal = createSelector(selectSelectedDeckCardIdCounts, counts => counts.reduce((acc, c) => acc + c.count, 0));
 export const selectSelectedDeckEmpty = createSelector(selectSelectedDeckCardIdCounts, ({ length }) => !length);
 
 export const selectSelectionFilter = createSelector(selectDeckBuilderState, ({ filter }) => filter);
-
-export const selectSelectionHeroes = createSelector(selectPrefilterHeroIds, selectDataEntityEntities, (ids, entities) =>
-  ids
-    .map(id => mapEntity(id, entities))
-    .filter(notUndefined)
-    .filter(isHero),
-);
 
 export const selectSelectionCardIds = createSelector(selectSelectionFilter, selectSelectedHero, selectPrefilterEntities, (filter, hero, prefilteredIds): string[] => {
   if (!hero?.cardClass) {
@@ -71,7 +64,7 @@ export const selectSelectionCardIds = createSelector(selectSelectionFilter, sele
   }
 });
 
-export const selectSelectionCards = createSelector(selectSelectionCardIds, selectDataEntityEntities, (ids, entities) =>
+export const selectSelectionCards = createSelector(selectSelectionCardIds, selectDataEntities, (ids, entities) =>
   ids
     .map(id => mapEntity(id, entities))
     .filter(notUndefined)

@@ -2,7 +2,7 @@ import { createSelector } from '@ngrx/store';
 
 import { notUndefined } from 'src/app/functions/typeguard.functions';
 import { isCard } from 'src/app/helpers/entity.helpers';
-import { selectDataEntityEntities } from 'src/app/store/data/data.selectors';
+import { selectDataEntities } from 'src/app/store/data/data.selectors';
 import { selectPrefilterEntities } from 'src/app/store/prefilter/prefilter.selectors';
 import { selectRouterParam } from 'src/app/store/router/router.selectors';
 
@@ -10,7 +10,7 @@ export const selectLibraryCardIds = createSelector(selectPrefilterEntities, sele
   return param ? (entities[param.toUpperCase()]?.cardIds ?? []) : [];
 });
 
-export const selectLibraryCards = createSelector(selectDataEntityEntities, selectLibraryCardIds, (entities, ids) => {
+export const selectLibraryCards = createSelector(selectLibraryCardIds, selectDataEntities, (ids, entities) => {
   return ids
     .map(id => entities[id])
     .filter(notUndefined)

@@ -7,7 +7,8 @@ import { EntityModule } from 'src/app/modules/entity/entity.module';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 
 import { DeckBuilderActions } from '../../store/deck-builder.actions';
-import { selectSelectedHeroId, selectSelectionHeroes } from '../../store/deck-builder.selectors';
+import { selectSelectedHeroId } from '../../store/deck-builder.selectors';
+import { selectPrefilteredHeroes } from 'src/app/store/prefilter/prefilter.selectors';
 
 @Component({
   selector: 'hs-hero-selection-page',
@@ -16,7 +17,7 @@ import { selectSelectedHeroId, selectSelectionHeroes } from '../../store/deck-bu
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroSelectionPageComponent {
-  readonly heroes$ = this.store.select(selectSelectionHeroes);
+  readonly heroes$ = this.store.select(selectPrefilteredHeroes);
 
   readonly selectedHeroId$ = this.store.select(selectSelectedHeroId);
 
