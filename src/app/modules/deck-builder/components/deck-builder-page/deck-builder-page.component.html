@@ -40,7 +40,7 @@
 
     @for (cardCount of deckCardCounts$ | async; track cardCount.card.id) {
       <button hs-entity-button contentType="tile" scale="0.9" (click)="removeCard(cardCount.card.id)" class="mb-3xs">
-        <hs-card [data]="cardCount.card" [count]="cardCount.count" />
+        <hs-tile [data]="cardCount.card" [count]="cardCount.count" />
       </button>
     }
     <p class="text-center fs-large fw-bold hs-regular-text text-nowrap my-2xs">Deck: {{ deckCardsTotal$ | async }} / 30 cards</p>

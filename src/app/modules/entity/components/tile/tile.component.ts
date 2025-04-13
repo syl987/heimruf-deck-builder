@@ -5,13 +5,13 @@ import { Card, CardRarity } from 'src/app/models/entity.models';
 const cardTemplate = 'assets/img/template/selection-card-template.png';
 
 @Component({
-  selector: 'hs-card',
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss',
+  selector: 'hs-tile',
+  templateUrl: './tile.component.html',
+  styleUrl: './tile.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'hs-entity hs-card' },
+  host: { class: 'hs-entity hs-tile' },
 })
-export class CardComponent {
+export class TileComponent {
   @Input({ required: true }) data!: Card;
   @Input({ required: true }) count!: number;
 
