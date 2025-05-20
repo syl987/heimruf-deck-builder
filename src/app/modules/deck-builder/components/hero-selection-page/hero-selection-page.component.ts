@@ -5,10 +5,10 @@ import { Store } from '@ngrx/store';
 
 import { EntityModule } from 'src/app/modules/entity/entity.module';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
+import { selectPrefilteredHeroes } from 'src/app/store/prefilter/prefilter.selectors';
 
 import { DeckBuilderActions } from '../../store/deck-builder.actions';
 import { selectSelectedHeroId } from '../../store/deck-builder.selectors';
-import { selectPrefilteredHeroes } from 'src/app/store/prefilter/prefilter.selectors';
 
 @Component({
   selector: 'hs-hero-selection-page',
