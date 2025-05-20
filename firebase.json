@@ -2,7 +2,6 @@
   "hosting": [
     {
       "target": "heimruf-deck-builder",
-      "source": ".",
       "public": "dist/heimruf-deck-builder",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
