@@ -11,14 +11,14 @@
 .mat-mdc-list-base .mat-mdc-list-item .mat-list-icon {
   // scale down
   &.fa.fa-users {
-    font-size: 1.25 * 80% !important;
     margin-top: 3px !important;
+    font-size: 1.25 * 80% !important;
   }
 
   // scale down
   &.fa.fa-handshake-o {
-    font-size: 1.25 * 80% !important;
     margin-top: 2px !important;
+    font-size: 1.25 * 80% !important;
   }
 }
 
@@ -33,14 +33,14 @@ button.mat-mdc-list-item:not(:focus) {
 .mat-nav-list .mat-mdc-list-item:focus,
 .mat-action-list .mat-mdc-list-item:hover,
 .mat-action-list .mat-mdc-list-item:focus {
+  background-color: mat.m2-get-color-from-palette($hs-primary, 50);
   background-image: initial;
+  background-attachment: initial;
   background-position-x: initial;
   background-position-y: initial;
-  background-size: initial;
-  background-attachment: initial;
-  background-origin: initial;
   background-clip: initial;
-  background-color: mat.m2-get-color-from-palette($hs-primary, 50);
+  background-origin: initial;
+  background-size: initial;
 
   .mat-ripple-element {
     background-color: rgba(mat.m2-get-color-from-palette($hs-primary), 0.12);

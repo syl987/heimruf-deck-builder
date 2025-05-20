@@ -2,6 +2,7 @@
 
 :host {
   @include hs-entity-dynamic-background;
+
   width: 286px;
   height: 386px;
 
@@ -11,18 +12,21 @@
 }
 
 .hs-minion-image {
-  border-radius: 50%;
+  z-index: -1;
   top: -10px;
   left: 48px;
   transform: scale(0.85);
-  object-fit: cover;
+
   width: 192px;
   height: 256px;
-  z-index: -1;
+  border-radius: 50%;
+
+  object-fit: cover;
 }
 
 .hs-minion-cost-value {
   @include hs-entity-value-text($hs-card-value-font-size);
+
   top: calc(25px - (#{$hs-card-value-font-size} * 0.35));
   left: 1px;
   width: 76px;
@@ -30,6 +34,7 @@
 
 .hs-minion-attack-value {
   @include hs-entity-value-text($hs-card-value-font-size);
+
   top: calc(335px - (#{$hs-card-value-font-size} * 0.35));
   left: 4px;
   width: 76px;
@@ -37,6 +42,7 @@
 
 .hs-minion-health-value {
   @include hs-entity-value-text($hs-card-value-font-size);
+
   top: calc(338px - (#{$hs-card-value-font-size} * 0.35));
   left: 212px;
   width: 76px;
@@ -44,16 +50,20 @@
 
 .hs-minion-name-value {
   @include hs-entity-value-text($hs-card-name-font-size);
+
   top: calc(185px - (#{$hs-card-name-font-size} * 0.35));
   left: 30px;
-  width: 226px;
   transform: rotate(-4deg);
+
+  width: 226px;
+
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .hs-minion-rarity-crystal {
   @include hs-entity-dynamic-background;
+
   top: 216px;
   left: 112px;
   width: 73px;
@@ -68,16 +78,21 @@
 
   .hs-minion-text-value {
     @include hs-entity-ability-text($hs-card-text-font-size);
+
     position: initial;
+
     display: table-cell;
-    vertical-align: middle;
+
     width: 186px;
     height: 110px;
+
+    vertical-align: middle;
   }
 }
 
 .hs-minion-race-wrapper {
   @include hs-entity-dynamic-background;
+
   top: 335px;
   left: 77px;
   width: 139px;
@@ -85,17 +100,22 @@
 
   .hs-minion-race-value {
     @include hs-entity-value-text($hs-card-race-font-size);
+
+    position: initial;
+
+    display: table-cell;
+
     width: 139px;
     height: 35px;
-    position: initial;
-    display: table-cell;
-    vertical-align: middle;
     padding-top: 3px;
+
+    vertical-align: middle;
   }
 }
 
 .hs-minion-dragon-decoration {
   @include hs-entity-dynamic-background;
+
   top: -21px;
   left: 3px;
   width: 280px;

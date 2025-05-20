@@ -9,14 +9,14 @@
     #000 0px 0px 2px;
 
   &.mat-divider-horizontal {
-    border-top-width: 3px !important;
-    margin-left: 2px;
     margin-right: 2px;
+    margin-left: 2px;
+    border-top-width: 3px !important;
   }
 
   &.mat-divider-vertical {
-    border-right-width: 3px !important;
     margin-top: 2px;
     margin-bottom: 2px;
+    border-right-width: 3px !important;
   }
 }

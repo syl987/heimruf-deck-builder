@@ -2,10 +2,11 @@
 @use 'sass:color';
 
 .mat-mdc-card {
-  border-radius: $border-radius !important;
-  background-color: rgba(30, 20, 15, 0.75) !important;
   --mat-card-title-text-size: 1.25rem;
   --mat-card-subtitle-text-size: 1rem;
+
+  border-radius: $border-radius !important;
+  background-color: rgba(30, 20, 15, 0.75) !important;
 
   .mat-mdc-card-title {
     margin-bottom: 4px;

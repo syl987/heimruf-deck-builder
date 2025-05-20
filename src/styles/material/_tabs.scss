@@ -5,13 +5,14 @@
 
 .mat-mdc-tab-link {
   @include hs-control-text;
-  opacity: 1 !important; // no transparency on inactive links
+
   height: 42px !important; // make a little smaller then 48px
+  opacity: 1 !important; // no transparency on inactive links
 
   &.mdc-tab--active,
   &.cdk-keyboard-focused {
-    background-color: rgba(0, 0, 0, 0.12) !important;
     border-radius: 4px; // align with button
+    background-color: rgba(0, 0, 0, 0.12) !important;
   }
 
   .mdc-tab__text-label {

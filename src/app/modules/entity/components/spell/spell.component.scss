@@ -2,6 +2,7 @@
 
 :host {
   @include hs-entity-dynamic-background;
+
   width: 286px;
   height: 386px;
 
@@ -11,17 +12,20 @@
 }
 
 .hs-spell-image {
+  z-index: -1;
   top: 12px;
   left: 14px;
   transform: scale(0.82);
-  object-fit: cover;
+
   width: 256px;
   height: 216px;
-  z-index: -1;
+
+  object-fit: cover;
 }
 
 .hs-spell-cost-value {
   @include hs-entity-value-text($hs-card-value-font-size);
+
   top: calc(24px - (#{$hs-card-value-font-size} * 0.35));
   left: 3px;
   width: 76px;
@@ -29,6 +33,7 @@
 
 .hs-spell-name-value {
   @include hs-entity-value-text($hs-card-name-font-size);
+
   top: calc(187px - (#{$hs-card-name-font-size} * 0.35));
   left: 30px;
   width: 226px;
@@ -36,6 +41,7 @@
 
 .hs-spell-rarity-crystal {
   @include hs-entity-dynamic-background;
+
   top: 218.4px;
   left: 117px;
   width: 46px;
@@ -50,10 +56,14 @@
 
   .hs-spell-text-value {
     @include hs-entity-ability-text($hs-card-text-font-size);
+
     position: initial;
+
     display: table-cell;
-    vertical-align: middle;
+
     width: 186px;
     height: 110px;
+
+    vertical-align: middle;
   }
 }

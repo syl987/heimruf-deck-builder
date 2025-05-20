@@ -1,10 +1,8 @@
 .mat-button-toggle-group {
-  border-radius: $border-radius !important;
   --mat-legacy-button-toggle-selected-state-background-color: transparent;
-}
 
-.mat-button-toggle-group {
   border-width: 0; // disable standard appearance
+  border-radius: $border-radius !important;
   box-shadow: none; // disable legacy appearance
 }
 
@@ -13,11 +11,12 @@
 }
 
 .mat-button-toggle {
-  border-radius: 4px; // as regular button
   border-width: 0 !important; // disable lines between toggles
+  border-radius: 4px; // as regular button
 
   .mat-button-toggle-button {
     @include hs-control-text;
+
     font-size: 14px; // align with button
 
     &:disabled,
@@ -29,7 +28,7 @@
   &.cdk-keyboard-focused .mat-button-toggle-focus-overlay,
   &.mat-button-toggle-checked .mat-button-toggle-focus-overlay {
     color: transparent !important; // align checked with focus
-    background-color: rgba(0, 0, 0, 0.12) !important; // align checked with focus
     opacity: 1 !important; // align checked with focus
+    background-color: rgba(0, 0, 0, 0.12) !important; // align checked with focus
   }
 }

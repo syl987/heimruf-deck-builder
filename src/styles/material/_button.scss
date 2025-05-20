@@ -4,9 +4,9 @@
 .mat-mdc-outlined-button,
 .mat-mdc-raised-button,
 .mat-mdc-unelevated-button {
-  border-radius: $border-radius !important;
   padding-right: app-spacer(s) !important;
   padding-left: app-spacer(s) !important;
+  border-radius: $border-radius !important;
 }
 
 .mat-mdc-button,
@@ -19,20 +19,20 @@
 
 .mat-mdc-outlined-button {
   &.mat-primary:not([disabled]) {
-    background-color: rgba(mat.m2-get-color-from-palette($hs-primary), 0.08);
     border-color: mat.m2-get-color-from-palette($hs-primary);
+    background-color: rgba(mat.m2-get-color-from-palette($hs-primary), 0.08);
   }
   &.mat-accent:not([disabled]) {
-    background-color: rgba(mat.m2-get-color-from-palette($hs-accent), 0.08);
     border-color: mat.m2-get-color-from-palette($hs-accent);
+    background-color: rgba(mat.m2-get-color-from-palette($hs-accent), 0.08);
   }
   &.mat-warn:not([disabled]) {
-    background-color: rgba(mat.m2-get-color-from-palette($hs-warn), 0.08);
     border-color: mat.m2-get-color-from-palette($hs-warn);
+    background-color: rgba(mat.m2-get-color-from-palette($hs-warn), 0.08);
   }
   &[disabled] {
-    background-color: rgba(0, 0, 0, 0.04);
     border-color: currentColor;
+    background-color: rgba(0, 0, 0, 0.04);
   }
   &:not(.mat-primary):not(.mat-accent):not(.mat-warn) {
     border-color: rgba(0, 0, 0, 0.32);

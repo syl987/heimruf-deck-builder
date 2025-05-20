@@ -2,6 +2,7 @@
 
 :host {
   @include hs-entity-dynamic-background;
+
   width: 286px;
   height: 386px;
 
@@ -11,18 +12,21 @@
 }
 
 .hs-weapon-image {
-  border-radius: 50%;
+  z-index: -1;
   top: -10px;
   left: 48px;
   transform: scale(0.85);
-  object-fit: cover;
+
   width: 192px;
   height: 256px;
-  z-index: -1;
+  border-radius: 50%;
+
+  object-fit: cover;
 }
 
 .hs-weapon-cost-value {
   @include hs-entity-value-text($hs-card-value-font-size);
+
   top: calc(22px - (#{$hs-card-value-font-size} * 0.35));
   left: 1px;
   width: 76px;
@@ -30,6 +34,7 @@
 
 .hs-weapon-attack-value {
   @include hs-entity-value-text($hs-card-value-font-size);
+
   top: calc(334px - (#{$hs-card-value-font-size} * 0.35));
   left: 4px;
   width: 76px;
@@ -37,6 +42,7 @@
 
 .hs-weapon-durability-value {
   @include hs-entity-value-text($hs-card-value-font-size);
+
   top: calc(334px - (#{$hs-card-value-font-size} * 0.35));
   left: 212px;
   width: 76px;
@@ -44,15 +50,19 @@
 
 .hs-weapon-name-value {
   @include hs-entity-value-text($hs-card-name-font-size);
+
   top: calc(183px - (#{$hs-card-name-font-size} * 0.35));
   left: 30px;
+
   width: 226px;
+
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .hs-weapon-rarity-crystal {
   @include hs-entity-dynamic-background;
+
   top: 215px;
   left: 127px;
   width: 43px;
@@ -67,11 +77,15 @@
 
   .hs-weapon-text-value {
     @include hs-entity-ability-text($hs-card-text-font-size);
+
     position: initial;
+
     display: table-cell;
-    vertical-align: middle;
+
     width: 186px;
     height: 110px;
+
     color: white;
+    vertical-align: middle;
   }
 }
