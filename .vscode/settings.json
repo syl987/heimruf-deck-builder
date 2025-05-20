@@ -8,6 +8,7 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.codeActionsOnSave.mode": "problems",
+  "stylelint.validate": ["css", "scss"],
   "extensions.ignoreRecommendations": false,
   "cSpell.words": [
     "AVAILABE",
