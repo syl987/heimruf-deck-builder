@@ -14,7 +14,7 @@ export class DataEffects implements OnInitEffects {
       concatMap(_ =>
         this.dataService.loadCardData().pipe(
           map(cardData => DataActions.loadSUCCESS({ cardData })),
-          catchError(_ => of(DataActions.loadERROR())),
+          catchError((err: unknown) => of(DataActions.loadERROR())),
         ),
       ),
     );
