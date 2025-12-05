@@ -14,6 +14,7 @@ const config = {
   ignoreFiles: ['./src/styles/bootstrap/**.*'],
   rules: {
     'selector-pseudo-element-no-unknown': [true, { ignorePseudoElements: ['ng-deep'] }], // recommended override: support angular elements
+    'no-invalid-position-declaration': null, // recommended override: conflicts with media query nesting
   },
 };
 

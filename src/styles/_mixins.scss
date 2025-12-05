@@ -85,7 +85,6 @@ $hs-card-race-font-size: 14px;
 }
 
 @mixin _hs-entity-text-base {
-  -webkit-font-smoothing: antialiased;
   color: white !important;
   text-shadow:
     #000 0px 0px 2px,
@@ -94,6 +93,8 @@ $hs-card-race-font-size: 14px;
     #000 0px 0px 2px,
     #000 0px 0px 2px,
     #000 0px 0px 2px;
+
+  -webkit-font-smoothing: antialiased;
 }
 
 @mixin hs-regular-text {
@@ -110,7 +111,6 @@ $hs-card-race-font-size: 14px;
 }
 
 @mixin _hs-control-text-base {
-  -webkit-font-smoothing: antialiased !important;
   color: white !important;
   text-shadow:
     #000 0px 0px 2px,
@@ -119,6 +119,8 @@ $hs-card-race-font-size: 14px;
     #000 0px 0px 2px,
     #000 0px 0px 2px,
     #000 0px 0px 2px;
+
+  -webkit-font-smoothing: antialiased !important;
 }
 
 @mixin hs-control-disabled {
