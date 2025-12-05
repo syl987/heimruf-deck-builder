@@ -16,7 +16,7 @@
     "declaration": false,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "typeRoots": ["node_modules/@types"],
