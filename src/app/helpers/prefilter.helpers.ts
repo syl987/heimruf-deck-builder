@@ -3,7 +3,7 @@ import { notUndefined } from '../functions/typeguard.functions';
 import { CardClass, Entity } from '../models/entity.models';
 import { CardPrefilter } from '../models/prefilter.models';
 
-export async function createCollectibleCardPrefilter(items: Entity[]): Promise<CardPrefilter[]> {
+export function createCollectibleCardPrefilter(items: Entity[]): CardPrefilter[] {
   const classes = items
     .map(item => item.cardClass)
     .filter(notUndefined)
@@ -86,7 +86,7 @@ export async function createCollectibleCardPrefilter(items: Entity[]): Promise<C
   }));
 }
 
-export async function selectCollectibleCardIds(items: Entity[]): Promise<string[]> {
+export function selectCollectibleCardIds(items: Entity[]): string[] {
   return items
     .filter(item => item.collectible)
     .filter(isCard)
@@ -94,7 +94,7 @@ export async function selectCollectibleCardIds(items: Entity[]): Promise<string[
     .map(item => item.id);
 }
 
-export async function selectCollectibleHeroIds(items: Entity[]): Promise<string[]> {
+export function selectCollectibleHeroIds(items: Entity[]): string[] {
   return items
     .filter(item => item.collectible)
     .filter(isHero)
