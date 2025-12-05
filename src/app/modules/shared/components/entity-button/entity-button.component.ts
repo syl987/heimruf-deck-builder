@@ -1,6 +1,6 @@
 import { coerceNumberProperty, NumberInput } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
-import { ChangeDetectionStrategy, Component, ElementRef, Inject, Input, NgZone, OnInit, Optional, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, NgZone, OnInit, ViewEncapsulation, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 
@@ -47,7 +47,12 @@ export class EntityButtonComponent extends MatButton implements OnInit {
   }
   private _scale = 0.8;
 
-  constructor(el: ElementRef, platform: Platform, zone: NgZone, @Optional() @Inject(ANIMATION_MODULE_TYPE) animationMode: string) {
+  constructor() {
+    const el = inject(ElementRef);
+    const platform = inject(Platform);
+    const zone = inject(NgZone);
+    const animationMode = inject(ANIMATION_MODULE_TYPE, { optional: true })!;
+
     super(el, platform, zone, animationMode);
   }
 
