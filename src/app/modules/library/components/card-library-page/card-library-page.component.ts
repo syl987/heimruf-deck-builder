@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { FullscreenOverlayContainer, Overlay, OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { AsyncPipe, LowerCasePipe, TitleCasePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, Inject, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, TemplateRef, ViewChild, ViewContainerRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
@@ -41,6 +41,13 @@ function getCardOverlayScale(breakpoint: string): number {
   providers: [{ provide: OverlayContainer, useClass: FullscreenOverlayContainer }],
 })
 export class CardLibraryPageComponent {
+  readonly config = inject<AppDataConfig>(APP_DATA_CONFIG);
+  private readonly store = inject(Store);
+  private readonly overlay = inject(Overlay);
+  private readonly observer = inject(BreakpointObserver);
+  private readonly viewContainerRef = inject(ViewContainerRef);
+  private readonly destroyRef = inject(DestroyRef);
+
   readonly cards$ = this.store.select(selectLibraryCards);
 
   private readonly breakpoints$ = merge(
@@ -60,15 +67,6 @@ export class CardLibraryPageComponent {
   readonly CardType = CardType;
 
   @ViewChild('cardOverlay') readonly cardOverlayTemplateRef?: TemplateRef<unknown>;
-
-  constructor(
-    @Inject(APP_DATA_CONFIG) readonly config: AppDataConfig,
-    private readonly store: Store,
-    private readonly overlay: Overlay,
-    private readonly observer: BreakpointObserver,
-    private readonly viewContainerRef: ViewContainerRef,
-    private readonly destroyRef: DestroyRef,
-  ) {}
 
   openCardOverlay(): void {
     if (!this.cardOverlayTemplateRef) {

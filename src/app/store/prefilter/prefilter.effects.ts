@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { createEffect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { filter, forkJoin, map, switchMap } from 'rxjs';
@@ -10,6 +10,8 @@ import { selectData } from '../data/data.selectors';
 
 @Injectable()
 export class PrefilterEffects {
+  private readonly store = inject(Store);
+
   readonly initialized = createEffect(() => {
     return this.store.select(selectData).pipe(
       filter(notEmpty),
@@ -22,6 +24,4 @@ export class PrefilterEffects {
       ),
     );
   });
-
-  constructor(private readonly store: Store) {}
 }

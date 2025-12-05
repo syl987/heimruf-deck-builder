@@ -1,5 +1,5 @@
 import { AsyncPipe, TitleCasePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { RouterModule } from '@angular/router';
@@ -27,6 +27,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeckBuilderPageComponent {
+  private readonly store = inject(Store);
+
   readonly cards$ = this.store.select(selectSelectionCards);
   readonly hero$ = this.store.select(selectSelectedHero);
 
@@ -39,8 +41,6 @@ export class DeckBuilderPageComponent {
   readonly CardType = CardType;
 
   readonly SelectionFilter = SelectionFilter;
-
-  constructor(private readonly store: Store) {}
 
   filterCards(filter: SelectionFilter): void {
     this.store.dispatch(DeckBuilderActions.filterCards({ filter }));

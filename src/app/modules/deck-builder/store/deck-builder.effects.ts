@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { concatLatestFrom } from '@ngrx/operators';
 import { Store } from '@ngrx/store';
@@ -15,6 +15,9 @@ const MAX_CARDS = 30;
 
 @Injectable()
 export class DeckBuilderEffects {
+  private readonly actions = inject(Actions);
+  private readonly store = inject(Store);
+
   readonly add = createEffect(() => {
     return this.actions.pipe(
       ofType(DeckBuilderActions.addCard),
@@ -47,9 +50,4 @@ export class DeckBuilderEffects {
       map(({ message }) => ToastActions.showError({ message })),
     );
   });
-
-  constructor(
-    private readonly actions: Actions,
-    private readonly store: Store,
-  ) {}
 }

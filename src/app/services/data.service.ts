@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { map, Observable } from 'rxjs';
 
 import { APP_DATA_CONFIG, AppDataConfig } from '../models/app.models';
@@ -9,12 +9,10 @@ import { Entity } from '../models/entity.models';
   providedIn: 'root',
 })
 export class DataService {
-  readonly baseUrl = `/assets/json/hearthstonejson/v1/${this.config.version}/${this.config.locale || 'enUS'}`;
+  private readonly http = inject(HttpClient);
+  private readonly config = inject<AppDataConfig>(APP_DATA_CONFIG);
 
-  constructor(
-    private readonly http: HttpClient,
-    @Inject(APP_DATA_CONFIG) private readonly config: AppDataConfig,
-  ) {}
+  readonly baseUrl = `/assets/json/hearthstonejson/v1/${this.config.version}/${this.config.locale || 'enUS'}`;
 
   loadCardData(): Observable<Entity[]> {
     const url = `${this.baseUrl}/cards.collectible.json`;

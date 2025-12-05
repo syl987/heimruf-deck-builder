@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { tap } from 'rxjs';
@@ -7,6 +7,9 @@ import { ToastActions } from './toast.actions';
 
 @Injectable()
 export class ToastEffects {
+  private readonly actions$ = inject(Actions);
+  private readonly snackbar = inject(MatSnackBar);
+
   readonly showSuccessToast = createEffect(
     () => {
       return this.actions$.pipe(
@@ -36,9 +39,4 @@ export class ToastEffects {
     },
     { dispatch: false },
   );
-
-  constructor(
-    private readonly actions$: Actions,
-    private readonly snackbar: MatSnackBar,
-  ) {}
 }

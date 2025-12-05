@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { catchError, concatMap, map, of } from 'rxjs';
@@ -20,6 +20,9 @@ function reduceNeutralCards(factor = NEUTRAL_CARD_REDUCTION_FACTOR) {
 
 @Injectable()
 export class DataEffects implements OnInitEffects {
+  private readonly actions = inject(Actions);
+  private readonly dataService = inject(DataService);
+
   readonly load = createEffect(() => {
     return this.actions.pipe(
       ofType(DataActions.load),
@@ -32,11 +35,6 @@ export class DataEffects implements OnInitEffects {
       ),
     );
   });
-
-  constructor(
-    private readonly actions: Actions,
-    private readonly dataService: DataService,
-  ) {}
 
   ngrxOnInitEffects(): Action {
     return DataActions.load();

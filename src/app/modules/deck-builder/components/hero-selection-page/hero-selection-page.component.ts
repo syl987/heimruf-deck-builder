@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 
@@ -17,14 +17,12 @@ import { selectSelectedHeroId } from '../../store/deck-builder.selectors';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroSelectionPageComponent {
+  private readonly store = inject(Store);
+  private readonly router = inject(Router);
+
   readonly heroes$ = this.store.select(selectPrefilteredHeroes);
 
   readonly selectedHeroId$ = this.store.select(selectSelectedHeroId);
-
-  constructor(
-    private readonly store: Store,
-    private readonly router: Router,
-  ) {}
 
   selectHero(heroId: string): void {
     this.store.dispatch(DeckBuilderActions.selectHero({ id: heroId }));
