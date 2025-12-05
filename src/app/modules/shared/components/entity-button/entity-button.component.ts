@@ -32,7 +32,7 @@ function getEntityButtonRippleClass(contentType: EntityContentType): string {
   inputs: ['disabled', 'disableRipple'],
   host: {
     '[attr.disabled]': 'disabled || null',
-    '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
+    '[class._mat-animation-noopable]': '_animationsDisabled',
     '[class.hs-entity-button]': 'true',
   },
 })
