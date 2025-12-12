@@ -45,7 +45,7 @@
     "@angular/compiler-cli": "^21.0.3",
     "@ngrx/eslint-plugin": "^20.1.0",
     "@ngrx/schematics": "^20.1.0",
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.0.1",
     "angular-eslint": "^21.0.1",
     "eslint": "^9.23.0",
     "eslint-config-prettier": "^10.1.1",
