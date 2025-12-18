@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="h2 hs-title text-center">{{ options.applicationName }}</h1>
-  @if (showScreenSizeWarning$ | async) {
+  @if (showScreenSizeWarning()) {
     <mat-card class="mb-s">
       <mat-card-content><b>Warning:</b> for optimal viewing experience, please use this app on a larger screen.</mat-card-content>
     </mat-card>

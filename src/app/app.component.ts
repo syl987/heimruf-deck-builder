@@ -1,6 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { AsyncPipe, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
@@ -10,7 +11,7 @@ import { APP_OPTIONS, AppOptions } from './models/app.models';
 
 @Component({
   selector: 'hs-root',
-  imports: [RouterModule, MatCardModule, MatTabsModule, DatePipe, AsyncPipe],
+  imports: [RouterModule, MatCardModule, MatTabsModule, DatePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,6 +22,8 @@ export class AppComponent {
   readonly options = inject<AppOptions>(APP_OPTIONS);
 
   readonly showScreenSizeWarning$ = this.observer.observe('(max-width: 532px)').pipe(map(({ matches }) => matches));
+
+  readonly showScreenSizeWarning = toSignal(this.showScreenSizeWarning$, { requireSync: true });
 
   readonly build = build;
 }

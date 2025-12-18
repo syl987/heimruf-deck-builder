@@ -9,8 +9,8 @@
 
   <mat-tab-nav-panel #tabPanel>
     <div class="d-flex flex-wrap justify-content-center">
-      @for (card of cards$ | async; track card.id) {
-        <button hs-entity-button contentType="card" (click)="selectedCard$.next(card); openCardOverlay(); button._elementRef.nativeElement.blur()" class="mb-xs" #button>
+      @for (card of cards(); track card.id) {
+        <button hs-entity-button contentType="card" (click)="selectedCard.set(card); openCardOverlay(); button._elementRef.nativeElement.blur()" class="mb-xs" #button>
           @switch (card.type) {
             @case (CardType.MINION) {
               <hs-minion [data]="card" />
@@ -29,8 +29,8 @@
 </div>
 
 <ng-template #cardOverlay>
-  @if (selectedCard$ | async; as card) {
-    <hs-entity-wrapper contentType="card" [scale]="selectedCardScale$ | async" class="hs-entity-overlay-shadow">
+  @if (selectedCard(); as card) {
+    <hs-entity-wrapper contentType="card" [scale]="selectedCardScale()" class="hs-entity-overlay-shadow">
       @switch (card.type) {
         @case (CardType.MINION) {
           <hs-minion [data]="card" />
