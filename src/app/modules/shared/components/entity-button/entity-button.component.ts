@@ -34,6 +34,7 @@ function getEntityButtonRippleClass(contentType: EntityContentType): string {
     '[attr.disabled]': 'disabled || null',
     '[class._mat-animation-noopable]': '_animationsDisabled',
     '[class.hs-entity-button]': 'true',
+    '[class.p-0]': 'true', // override default padding of MatButton
   },
 })
 export class EntityButtonComponent extends MatButton implements OnInit {
