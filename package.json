@@ -32,6 +32,7 @@
     "@ngrx/entity": "^20.1.0",
     "@ngrx/operators": "^20.1.0",
     "@ngrx/router-store": "^20.1.0",
+    "@ngrx/signals": "^20.1.0",
     "@ngrx/store": "^20.1.0",
     "@ngrx/store-devtools": "^20.1.0",
     "bootstrap": "~5.3.2",

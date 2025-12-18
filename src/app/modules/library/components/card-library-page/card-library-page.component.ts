@@ -7,7 +7,6 @@ import { ChangeDetectionStrategy, Component, DestroyRef, TemplateRef, ViewChild,
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { filter, first, map, merge } from 'rxjs';
 
 import { APP_DATA_CONFIG, AppDataConfig } from 'src/app/models/app.models';
@@ -15,7 +14,7 @@ import { Card, CardType } from 'src/app/models/entity.models';
 import { EntityModule } from 'src/app/modules/entity/entity.module';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 
-import { selectLibraryCards } from '../../store/library.selectors';
+import { LibraryStore } from '../../store/library.store';
 
 function getCardOverlayScale(breakpoint: string): number {
   switch (breakpoint) {
@@ -43,13 +42,13 @@ function getCardOverlayScale(breakpoint: string): number {
 export class CardLibraryPageComponent {
   readonly config = inject<AppDataConfig>(APP_DATA_CONFIG);
 
-  private readonly store = inject(Store);
+  private readonly store = inject(LibraryStore);
   private readonly overlay = inject(Overlay);
   private readonly observer = inject(BreakpointObserver);
   private readonly viewContainerRef = inject(ViewContainerRef);
   private readonly destroyRef = inject(DestroyRef);
 
-  readonly cards = this.store.selectSignal(selectLibraryCards);
+  readonly cards = this.store.cards();
 
   private readonly breakpoint$ = merge(
     this.observer.observe([Breakpoints.XSmall]),
