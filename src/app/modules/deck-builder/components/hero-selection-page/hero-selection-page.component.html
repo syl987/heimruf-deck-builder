@@ -5,10 +5,8 @@
 </div>
 
 <div class="container-lg d-flex flex-wrap justify-content-center">
-  @let id = selectedHeroId();
-
   @for (hero of heroes(); track hero.id) {
-    <a hs-entity-button [routerLink]="['/deck-builder', hero.cardClass?.toLowerCase()]" contentType="hero" scale="0.9" [class.active]="id === hero.id">
+    <a hs-entity-button [routerLink]="['/deck-builder', hero.cardClass?.toLowerCase()]" contentType="hero" scale="0.9" [class.active]="hero.id === selectedHeroId()">
       <hs-hero [data]="hero" />
     </a>
   }

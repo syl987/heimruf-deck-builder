@@ -35,17 +35,17 @@
 
   <div class="d-flex flex-column ms-3xs" style="min-width: 258px">
     <a hs-entity-button contentType="hero" routerLink="/deck-builder" class="mx-auto my-3xs" aria-label="Select hero">
-      <hs-hero [data]="$any(hero())" />
+      <hs-hero [data]="$any(selectedHero())" />
     </a>
 
-    @for (cardCount of deckCardCounts(); track cardCount.card.id) {
+    @for (cardCount of deck.cardCounts(); track cardCount.card.id) {
       <button hs-entity-button contentType="tile" scale="0.9" (click)="removeCard(cardCount.card.id)" class="mb-3xs">
         <hs-tile [data]="cardCount.card" [count]="cardCount.count" />
       </button>
     }
-    <p class="text-center fs-large fw-bold hs-regular-text text-nowrap my-2xs">Deck: {{ deckCardsTotal() }} / 30 cards</p>
+    <p class="text-center fs-large fw-bold hs-regular-text text-nowrap my-2xs">Deck: {{ deck.cardsTotal() }} / 30 cards</p>
 
-    @if (deckEmpty()) {
+    @if (deck.empty()) {
       <p class="text-center text-muted fs-small fw-bold hs-regular-text px-s">Click on cards on the left to add them to your deck.</p>
     } @else {
       <div class="text-center">

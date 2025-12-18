@@ -30,13 +30,15 @@ export class DeckBuilderPageComponent {
   private readonly store = inject(Store);
 
   readonly cards = this.store.selectSignal(selectSelectionCards);
-  readonly hero = this.store.selectSignal(selectSelectedHero);
-
   readonly filter = this.store.selectSignal(selectSelectionFilter);
 
-  readonly deckCardCounts = this.store.selectSignal(selectSelectedDeckCardCounts);
-  readonly deckCardsTotal = this.store.selectSignal(selectSelectedDeckCardsTotal);
-  readonly deckEmpty = this.store.selectSignal(selectSelectedDeckEmpty);
+  readonly selectedHero = this.store.selectSignal(selectSelectedHero);
+
+  readonly deck = Object.freeze({
+    cardCounts: this.store.selectSignal(selectSelectedDeckCardCounts),
+    cardsTotal: this.store.selectSignal(selectSelectedDeckCardsTotal),
+    empty: this.store.selectSignal(selectSelectedDeckEmpty),
+  });
 
   readonly CardType = CardType;
 
