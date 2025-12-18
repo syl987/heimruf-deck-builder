@@ -10,10 +10,10 @@ import { selectData } from '../data/data.selectors';
 
 @Injectable()
 export class PrefilterEffects {
-  private readonly store = inject(Store);
+  readonly #store = inject(Store);
 
   readonly initialized = createEffect(() => {
-    return this.store.select(selectData).pipe(
+    return this.#store.select(selectData).pipe(
       filter(notEmpty),
       map(items =>
         PrefilterActions.initialized({

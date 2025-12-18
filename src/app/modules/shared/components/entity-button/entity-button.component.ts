@@ -41,12 +41,12 @@ export class EntityButtonComponent extends MatButton implements OnInit {
   @Input({ required: true }) contentType!: EntityContentType;
 
   @Input() set scale(value: NumberInput) {
-    this._scale = coerceNumberProperty(value);
+    this.#scale = coerceNumberProperty(value);
   }
   get scale(): number {
-    return this._scale;
+    return this.#scale;
   }
-  private _scale = 0.8;
+  #scale = 0.8;
 
   constructor() {
     const el = inject(ElementRef);

@@ -13,12 +13,12 @@ export class EntityWrapperComponent {
   @Input({ required: true }) contentType!: EntityContentType;
 
   @Input() set scale(value: NumberInput) {
-    this._scale = coerceNumberProperty(value);
+    this.#scale = coerceNumberProperty(value);
   }
   get scale(): number {
-    return this._scale;
+    return this.#scale;
   }
-  private _scale = 0.8;
+  #scale = 0.8;
 
   @HostBinding('style.transform') get transform(): string {
     return `scale(${this.scale})`;

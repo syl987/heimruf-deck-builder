@@ -7,14 +7,14 @@ import { ToastActions } from './toast.actions';
 
 @Injectable()
 export class ToastEffects {
-  private readonly actions = inject(Actions);
-  private readonly snackbar = inject(MatSnackBar);
+  readonly #actions = inject(Actions);
+  readonly #snackbar = inject(MatSnackBar);
 
   readonly showSuccessToast = createEffect(
     () => {
-      return this.actions.pipe(
+      return this.#actions.pipe(
         ofType(ToastActions.showSuccess),
-        tap(({ message, options }) => this.snackbar.open(message, undefined, { duration: 4000, ...options, panelClass: 'success' })),
+        tap(({ message, options }) => this.#snackbar.open(message, undefined, { duration: 4000, ...options, panelClass: 'success' })),
       );
     },
     { dispatch: false },
@@ -22,9 +22,9 @@ export class ToastEffects {
 
   readonly showErrorToast = createEffect(
     () => {
-      return this.actions.pipe(
+      return this.#actions.pipe(
         ofType(ToastActions.showError),
-        tap(({ message, options }) => this.snackbar.open(message, undefined, { duration: 7000, ...options, panelClass: 'error' })),
+        tap(({ message, options }) => this.#snackbar.open(message, undefined, { duration: 7000, ...options, panelClass: 'error' })),
       );
     },
     { dispatch: false },
@@ -32,9 +32,9 @@ export class ToastEffects {
 
   readonly showInfoToast = createEffect(
     () => {
-      return this.actions.pipe(
+      return this.#actions.pipe(
         ofType(ToastActions.showInfo),
-        tap(({ message, options }) => this.snackbar.open(message, undefined, { duration: 5000, ...options, panelClass: 'info' })),
+        tap(({ message, options }) => this.#snackbar.open(message, undefined, { duration: 5000, ...options, panelClass: 'info' })),
       );
     },
     { dispatch: false },

@@ -5,12 +5,12 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   name: 'safeHtml',
 })
 export class SafeHtmlPipe implements PipeTransform {
-  private readonly sanitizer = inject(DomSanitizer);
+  readonly #sanitizer = inject(DomSanitizer);
 
   transform(value: string | null | undefined): SafeHtml {
     if (value === null || value === undefined || typeof value !== 'string') {
       return '';
     }
-    return this.sanitizer.bypassSecurityTrustHtml(this.sanitizer.sanitize(SecurityContext.HTML, value) || '');
+    return this.#sanitizer.bypassSecurityTrustHtml(this.#sanitizer.sanitize(SecurityContext.HTML, value) || '');
   }
 }

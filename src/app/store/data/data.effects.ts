@@ -20,14 +20,14 @@ function reduceNeutralCards(factor = NEUTRAL_CARD_REDUCTION_FACTOR) {
 
 @Injectable()
 export class DataEffects implements OnInitEffects {
-  private readonly actions = inject(Actions);
-  private readonly dataService = inject(DataService);
+  readonly #actions = inject(Actions);
+  readonly #dataService = inject(DataService);
 
   readonly load = createEffect(() => {
-    return this.actions.pipe(
+    return this.#actions.pipe(
       ofType(DataActions.load),
       concatMap(_ =>
-        this.dataService.loadCardData().pipe(
+        this.#dataService.loadCardData().pipe(
           reduceNeutralCards(), // workaround: reduce rendered data for performance reasons
           map(cardData => DataActions.loadSUCCESS({ cardData })),
           catchError((err: unknown) => of(DataActions.loadERROR())),

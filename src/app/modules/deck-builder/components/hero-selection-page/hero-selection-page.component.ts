@@ -16,15 +16,15 @@ import { selectSelectedHeroId } from '../../store/deck-builder.selectors';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroSelectionPageComponent {
-  private readonly store = inject(Store);
-  private readonly router = inject(Router);
+  readonly #store = inject(Store);
+  readonly #router = inject(Router);
 
-  readonly heroes = this.store.selectSignal(selectPrefilteredHeroes);
+  readonly heroes = this.#store.selectSignal(selectPrefilteredHeroes);
 
-  readonly selectedHeroId = this.store.selectSignal(selectSelectedHeroId);
+  readonly selectedHeroId = this.#store.selectSignal(selectSelectedHeroId);
 
   selectHero(heroId: string): void {
-    this.store.dispatch(DeckBuilderActions.selectHero({ id: heroId }));
-    this.router.navigateByUrl('/deck-builder');
+    this.#store.dispatch(DeckBuilderActions.selectHero({ id: heroId }));
+    this.#router.navigateByUrl('/deck-builder');
   }
 }

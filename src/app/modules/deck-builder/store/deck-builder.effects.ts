@@ -15,13 +15,13 @@ const MAX_CARDS = 30;
 
 @Injectable()
 export class DeckBuilderEffects {
-  private readonly actions = inject(Actions);
-  private readonly store = inject(Store);
+  readonly #actions = inject(Actions);
+  readonly #store = inject(Store);
 
   readonly add = createEffect(() => {
-    return this.actions.pipe(
+    return this.#actions.pipe(
       ofType(DeckBuilderActions.addCard),
-      concatLatestFrom(() => this.store.select(selectSelectedDeck)),
+      concatLatestFrom(() => this.#store.select(selectSelectedDeck)),
       map(([{ card }, deck]) => {
         if (deck == null) {
           return DeckBuilderActions.addCardERROR({ message: `Internal Error.` });
@@ -45,7 +45,7 @@ export class DeckBuilderEffects {
   });
 
   readonly showErrorToast = createEffect(() => {
-    return this.actions.pipe(
+    return this.#actions.pipe(
       ofType(DeckBuilderActions.addCardERROR),
       map(({ message }) => ToastActions.showError({ message })),
     );

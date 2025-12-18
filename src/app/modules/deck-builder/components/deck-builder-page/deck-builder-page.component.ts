@@ -27,17 +27,17 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeckBuilderPageComponent {
-  private readonly store = inject(Store);
+  readonly #store = inject(Store);
 
-  readonly cards = this.store.selectSignal(selectSelectionCards);
-  readonly filter = this.store.selectSignal(selectSelectionFilter);
+  readonly cards = this.#store.selectSignal(selectSelectionCards);
+  readonly filter = this.#store.selectSignal(selectSelectionFilter);
 
-  readonly selectedHero = this.store.selectSignal(selectSelectedHero);
+  readonly selectedHero = this.#store.selectSignal(selectSelectedHero);
 
   readonly deck = Object.freeze({
-    cardCounts: this.store.selectSignal(selectSelectedDeckCardCounts),
-    cardsTotal: this.store.selectSignal(selectSelectedDeckCardsTotal),
-    empty: this.store.selectSignal(selectSelectedDeckEmpty),
+    cardCounts: this.#store.selectSignal(selectSelectedDeckCardCounts),
+    cardsTotal: this.#store.selectSignal(selectSelectedDeckCardsTotal),
+    empty: this.#store.selectSignal(selectSelectedDeckEmpty),
   });
 
   readonly CardType = CardType;
@@ -45,18 +45,18 @@ export class DeckBuilderPageComponent {
   readonly SelectionFilter = SelectionFilter;
 
   filterCards(filter: SelectionFilter): void {
-    this.store.dispatch(DeckBuilderActions.filterCards({ filter }));
+    this.#store.dispatch(DeckBuilderActions.filterCards({ filter }));
   }
 
   addCard(card: Card): void {
-    this.store.dispatch(DeckBuilderActions.addCard({ card }));
+    this.#store.dispatch(DeckBuilderActions.addCard({ card }));
   }
 
   removeCard(id: string): void {
-    this.store.dispatch(DeckBuilderActions.removeCard({ id }));
+    this.#store.dispatch(DeckBuilderActions.removeCard({ id }));
   }
 
   removeAllCards(): void {
-    this.store.dispatch(DeckBuilderActions.removeCards());
+    this.#store.dispatch(DeckBuilderActions.removeCards());
   }
 }

@@ -18,10 +18,11 @@ import { APP_OPTIONS, AppOptions } from './models/app.models';
   host: { class: 'd-flex flex-column min-vh-100' },
 })
 export class AppComponent {
-  private readonly observer = inject(BreakpointObserver);
+  readonly #observer = inject(BreakpointObserver);
+
   readonly options = inject<AppOptions>(APP_OPTIONS);
 
-  readonly showScreenSizeWarning$ = this.observer.observe('(max-width: 532px)').pipe(map(({ matches }) => matches));
+  readonly showScreenSizeWarning$ = this.#observer.observe('(max-width: 532px)').pipe(map(({ matches }) => matches));
 
   readonly showScreenSizeWarning = toSignal(this.showScreenSizeWarning$, { requireSync: true });
 

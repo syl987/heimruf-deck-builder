@@ -41,28 +41,28 @@ function getCardOverlayScale(breakpoint: string): number {
   providers: [{ provide: OverlayContainer, useClass: FullscreenOverlayContainer }],
 })
 export class CardLibraryPageComponent {
-  readonly config = inject<AppDataConfig>(APP_DATA_CONFIG);
+  readonly #store = inject(Store);
+  readonly #overlay = inject(Overlay);
+  readonly #observer = inject(BreakpointObserver);
+  readonly #viewContainerRef = inject(ViewContainerRef);
+  readonly #destroyRef = inject(DestroyRef);
 
-  private readonly store = inject(Store);
-  private readonly overlay = inject(Overlay);
-  private readonly observer = inject(BreakpointObserver);
-  private readonly viewContainerRef = inject(ViewContainerRef);
-  private readonly destroyRef = inject(DestroyRef);
-
-  readonly cards = this.store.selectSignal(selectLibraryCards);
-
-  private readonly breakpoint$ = merge(
-    this.observer.observe([Breakpoints.XSmall]),
-    this.observer.observe([Breakpoints.Small]),
-    this.observer.observe([Breakpoints.Medium]),
-    this.observer.observe([Breakpoints.Large]),
-    this.observer.observe([Breakpoints.XLarge]),
+  readonly #breakpoint$ = merge(
+    this.#observer.observe([Breakpoints.XSmall]),
+    this.#observer.observe([Breakpoints.Small]),
+    this.#observer.observe([Breakpoints.Medium]),
+    this.#observer.observe([Breakpoints.Large]),
+    this.#observer.observe([Breakpoints.XLarge]),
   ).pipe(
     filter(({ matches }) => matches),
     map(({ breakpoints }) => Object.keys(breakpoints)[0]), // select just one breakpoint that is relevant
   );
 
-  readonly selectedCardScale = toSignal(this.breakpoint$.pipe(map(getCardOverlayScale)), { initialValue: 1 });
+  readonly config = inject<AppDataConfig>(APP_DATA_CONFIG);
+
+  readonly cards = this.#store.selectSignal(selectLibraryCards);
+
+  readonly selectedCardScale = toSignal(this.#breakpoint$.pipe(map(getCardOverlayScale)), { initialValue: 1 });
   readonly selectedCard = signal<Card | undefined>(undefined);
 
   readonly CardType = CardType;
@@ -73,20 +73,20 @@ export class CardLibraryPageComponent {
     if (!this.cardOverlayTemplateRef) {
       return;
     }
-    const position = this.overlay.position().global().centerHorizontally().centerVertically();
-    const scroll = this.overlay.scrollStrategies.block();
+    const position = this.#overlay.position().global().centerHorizontally().centerVertically();
+    const scroll = this.#overlay.scrollStrategies.block();
 
-    const overlayRef = this.overlay.create({
+    const overlayRef = this.#overlay.create({
       positionStrategy: position,
       scrollStrategy: scroll,
       disposeOnNavigation: true,
       hasBackdrop: true,
     });
-    overlayRef.attach(new TemplatePortal(this.cardOverlayTemplateRef, this.viewContainerRef));
+    overlayRef.attach(new TemplatePortal(this.cardOverlayTemplateRef, this.#viewContainerRef));
 
     // eslint-disable-next-line @typescript-eslint/no-deprecated
     merge(overlayRef.backdropClick(), overlayRef.keydownEvents().pipe(filter(({ keyCode }) => keyCode === ESCAPE)))
-      .pipe(first(), takeUntilDestroyed(this.destroyRef))
+      .pipe(first(), takeUntilDestroyed(this.#destroyRef))
       .subscribe(_ => {
         overlayRef.detach();
         overlayRef.dispose();
